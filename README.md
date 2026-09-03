@@ -1,28 +1,65 @@
-# Wilofox Deck Studio · WebMCP
+# Wilofox Deck Studio
 
-Wilofox Deck Studio is a single-file presentation studio for educators and creators. This WebMCP edition turns the existing human-first editor into a shared workspace where a person and an AI agent can create and refine the same visible deck.
+> Create and present visual lessons with an AI agent by your side, while the educator remains in control.
 
-## WebMCP tools
+[Live Demo](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/) ·
+[Devpost Submission](https://devpost.com/software/wilofox-deck-studio) ·
+[Video Demo](https://youtu.be/7OCQUkuliys)
 
-- `create_deck` — creates a new structured presentation and opens it in the editor.
-- `get_deck_context` — reads the latest deck state, including human edits.
-- `update_slide` — changes one requested slide while preserving the rest of the deck.
-- `navigate_to_slide` — brings a requested slide into view for joint review.
+## Why I built it
 
-Every tool uses the same application state and render functions as the manual editor. The application remains fully functional in browsers without WebMCP; agent support is a progressive enhancement.
+I created Wilofox Deck Studio because I needed one workspace for preparing visual lessons, presenting them on the web, teaching through live streams, and controlling content across multiple screens.
 
-## Test WebMCP
+## What it does
 
-Open the deployed app in ChatGPT's in-app browser. In supported Google Chrome builds, enable `chrome://flags/#enable-webmcp-testing` and relaunch the browser.
+Wilofox Deck Studio helps educators and content creators:
 
-Example request to an agent:
+- Organize presentations into sections and slides.
+- Combine written content with diagrams, images, and videos.
+- Use speaker notes, timers, pointers, and annotation tools.
+- Present with synchronized audience and presenter screens.
+- Collaborate with an AI agent through WebMCP.
 
-> Create a 5-slide beginner deck about prompt engineering. Include a concrete example and a final knowledge check. Then show me slide 2.
+## WebMCP integration
 
-## Run locally
+The application exposes four structured tools:
 
-Serve `dist/` from a local HTTP server and open `index.html`.
+| Tool | Purpose |
+|---|---|
+| `create_deck` | Creates a complete editable presentation |
+| `get_deck_context` | Reads the latest state, including human edits |
+| `update_slide` | Updates one slide while preserving the others |
+| `navigate_to_slide` | Opens a requested slide for review |
+
+Agent actions use the same visible interface and application state as the educator.
+
+## Try the WebMCP workflow
+
+1. Open the [live application](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/).
+2. Use ChatGPT’s in-app browser or Chrome with WebMCP enabled.
+3. Ask the agent to create or read a presentation.
+4. Manually edit one slide.
+5. Ask the agent to read the updated state and improve only that slide.
+
+No account or credentials are required.
+
+## Technology
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- IndexedDB
+- WebMCP
+- OpenAI Codex
+
+## Architecture
+
+The application uses a portable single-file architecture. WebMCP is implemented as a progressive enhancement, so the manual presentation experience continues working in browsers without WebMCP support.
+
+## Author
+
+Created by Wilson Lavio for the OpenAI WebMCP Challenge.
 
 ## License
 
-MIT
+MIT License
