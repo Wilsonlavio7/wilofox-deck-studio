@@ -6,7 +6,7 @@
 
 [Live Demo](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/) |
 [Devpost Submission](https://devpost.com/software/wilofox-deck-studio) |
-[Video Demo](https://youtu.be/7OCQUkuliys)
+[Video Demo](https://youtu.be/XSbsEmCxs6Q)
 
 ## Why I built it
 
@@ -21,6 +21,7 @@ Wilofox Deck Studio helps educators and content creators:
 - Use speaker notes, timers, pointers, and annotation tools.
 - Present with synchronized audience and presenter screens.
 - Collaborate with an AI agent through WebMCP.
+- Personalize the dashboard with an optional browser-local profile or continue as a guest.
 
 ## WebMCP integration
 
@@ -43,7 +44,7 @@ Agent actions use the same visible interface and application state as the educat
 4. Manually edit one slide.
 5. Ask the agent to read the updated state and improve only that slide.
 
-No account or credentials are required.
+No account or credentials are required. The optional local profile only personalizes the current browser; it is not authentication and does not synchronize decks.
 
 ## Technology
 
@@ -72,6 +73,7 @@ MIT License
 
 - [Quick Start](docs/QUICK_START.md)
 - [User Guide](docs/USER_GUIDE.md)
+- [Local Profile](docs/LOCAL_PROFILE.md)
 - [WebMCP Guide](docs/WEBMCP_GUIDE.md)
 - [Judge Guide](docs/JUDGE_GUIDE.md)
 - [Architecture](docs/ARCHITECTURE.md)

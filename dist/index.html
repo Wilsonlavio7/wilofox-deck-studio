@@ -956,6 +956,10 @@
   .badge.estado-guion{color:var(--accentB);border-color:rgba(212,162,76,.4);}
   .badge.estado-grabado{color:#3FBF9F;border-color:rgba(63,191,159,.4);}
   .badge.estado-publicado{color:#4ADE80;border-color:rgba(74,222,128,.4);}
+  .badge.included{display:inline-flex;align-items:center;gap:4px;color:var(--accentB);
+    border-color:rgba(212,162,76,.45);background:rgba(212,162,76,.08);font-size:8px;
+    font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+  .badge.included .included-mark{font-size:8px;line-height:1;color:#F0C66F;}
   .deck-card-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
   .deck-card-path{font-family:var(--fmono);font-size:9.5px;color:var(--accentB);margin-bottom:5px;
     text-transform:uppercase;letter-spacing:.05em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -997,6 +1001,27 @@
   .cfg-addrow{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border-strong);}
   .cfg-home-radio{width:16px;height:16px;flex-shrink:0;accent-color:var(--accentB);}
   .cfg-empty{font-size:12px;color:var(--text-faint);padding:10px 0;text-align:center;}
+  .profile-chip{margin-left:auto;display:flex;align-items:center;gap:9px;padding:7px 10px 7px 7px;border:1px solid var(--border);border-radius:999px;background:var(--panel);color:var(--text-muted);min-width:0;}
+  .profile-chip:hover{border-color:var(--accentB);color:var(--text);}
+  .profile-avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accentB),var(--accentA));color:#130f0b;font-family:var(--fdisplay);font-weight:700;font-size:12px;flex:0 0 auto;}
+  .profile-chip-copy{text-align:left;line-height:1.15;max-width:150px;}
+  .profile-chip-name{font-size:11.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .profile-chip-role{font-family:var(--fmono);font-size:8.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+  .welcome-modal{max-width:500px;text-align:left;padding:30px;}
+  .welcome-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(224,166,68,.2),rgba(232,86,127,.14));border:1px solid rgba(224,166,68,.35);margin-bottom:18px;}
+  .welcome-mark svg{width:26px;height:26px;}
+  .welcome-modal h2{font-size:24px;margin-bottom:8px;}
+  .welcome-modal .modal-sub{font-size:13.5px;line-height:1.55;margin-bottom:20px;}
+  .welcome-fields{display:grid;grid-template-columns:1fr 180px;gap:12px;}
+  .welcome-privacy{display:flex;align-items:flex-start;gap:9px;padding:11px 12px;margin-top:14px;border:1px solid rgba(74,222,128,.22);background:rgba(74,222,128,.05);border-radius:10px;color:var(--text-muted);font-size:11.5px;line-height:1.45;}
+  .welcome-privacy .dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;margin-top:5px;flex:0 0 auto;}
+  .welcome-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;}
+  .profile-panel{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start;padding:4px 0 10px;}
+  .profile-avatar.large{width:64px;height:64px;font-size:22px;border-radius:18px;}
+  .profile-local-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fmono);font-size:9px;color:#4ADE80;border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06);padding:4px 7px;border-radius:999px;margin-top:8px;}
+  .profile-settings-grid{display:grid;grid-template-columns:1fr 180px;gap:12px;margin-top:14px;}
+  .profile-help{font-size:11.5px;line-height:1.55;color:var(--text-muted);margin-top:12px;padding:11px 12px;background:var(--panel-2);border-radius:9px;}
+  @media(max-width:700px){.profile-chip-copy{display:none}.profile-chip{padding:5px}.profile-avatar{width:28px;height:28px}.welcome-fields,.profile-settings-grid{grid-template-columns:1fr}.welcome-actions{align-items:stretch;flex-direction:column-reverse}.welcome-actions .btn{width:100%}.profile-panel{grid-template-columns:1fr}.profile-avatar.large{width:52px;height:52px}}
 
   /* ---- control panel (segunda ventana) ---- */
   #controlView{display:none;height:100%;overflow-y:auto;padding:24px 28px;}
@@ -1056,18 +1081,63 @@
   .next-up-label{font-family:var(--fmono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accentB);margin-bottom:6px;}
   .next-up-title{font-family:var(--fdisplay);font-weight:600;font-size:16px;}
 
-  .guia-section{margin-bottom:28px;}
-  .guia-section h4{font-family:var(--fdisplay);font-weight:600;font-size:15px;margin-bottom:10px;}
-  .guia-steps{display:flex;flex-direction:column;gap:8px;}
-  .guia-step{display:flex;gap:12px;align-items:flex-start;font-size:12.5px;color:var(--text-muted);}
-  .guia-step-num{font-family:var(--fmono);font-size:11px;color:var(--accentB);flex-shrink:0;width:18px;}
-  .guia-kbd-table{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:12.5px;max-width:420px;}
+  .guia-wrap{max-width:1040px;}
+  .guia-hero{background:linear-gradient(135deg,rgba(224,166,68,.12),rgba(232,86,127,.06) 48%,rgba(91,155,213,.06));border:1px solid var(--border-strong);border-radius:18px;padding:24px;margin-bottom:18px;position:relative;overflow:hidden;}
+  .guia-hero::after{content:'?';position:absolute;right:22px;top:2px;font-family:var(--fdisplay);font-size:92px;font-weight:700;color:rgba(224,166,68,.07);pointer-events:none;}
+  .guia-eyebrow{font-family:var(--fmono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accentB);margin-bottom:7px;}
+  .guia-title{font-family:var(--fdisplay);font-size:25px;line-height:1.15;margin:0 0 8px;}
+  .guia-lead{font-size:14px;line-height:1.55;color:var(--text-muted);max-width:720px;}
+  .guia-search{margin-top:18px;max-width:620px;position:relative;}
+  .guia-search::before{content:'⌕';position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--text-faint);}
+  .guia-search input{width:100%;height:42px;padding:0 42px;background:rgba(9,11,17,.72);border:1px solid var(--border-strong);border-radius:11px;color:var(--text);font-size:14px;}
+  .guia-search input:focus{outline:2px solid rgba(224,166,68,.28);border-color:var(--accentB);}
+  .guia-search-clear{position:absolute;right:8px;top:7px;width:28px;height:28px;border-radius:7px;color:var(--text-muted);display:none;}
+  .guia-search-clear:hover{background:var(--panel-2);color:var(--text);}
+  .guia-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+  .guia-route{border:1px solid var(--border);background:var(--panel);border-radius:13px;padding:14px;text-align:left;color:inherit;transition:.16s ease;}
+  .guia-route:hover{transform:translateY(-1px);border-color:var(--accentB);background:var(--panel-2);}
+  .guia-route-icon{font-size:18px;display:block;margin-bottom:7px;}
+  .guia-route strong{display:block;font-size:13px;margin-bottom:3px;}
+  .guia-route small{font-size:11.5px;line-height:1.4;color:var(--text-muted);}
+  .guia-results{font-family:var(--fmono);font-size:10px;color:var(--text-faint);margin:0 2px 10px;display:none;}
+  .guia-accordion{display:flex;flex-direction:column;gap:10px;}
+  .guia-section{margin:0;border:1px solid var(--border);border-radius:14px;background:var(--panel);overflow:hidden;}
+  .guia-section[open]{border-color:var(--border-strong);box-shadow:0 12px 30px rgba(0,0,0,.14);}
+  .guia-section summary{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;list-style:none;user-select:none;}
+  .guia-section summary::-webkit-details-marker{display:none;}
+  .guia-section summary:hover{background:rgba(255,255,255,.018);}
+  .guia-summary-icon{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--border-strong);background:var(--panel-2);border-radius:10px;flex:0 0 auto;}
+  .guia-summary-copy{min-width:0;flex:1;}
+  .guia-section h4{font-family:var(--fdisplay);font-weight:600;font-size:15px;margin:0 0 2px;}
+  .guia-summary-copy small{display:block;color:var(--text-faint);font-size:11.5px;line-height:1.35;}
+  .guia-tag{font-family:var(--fmono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(224,166,68,.3);color:var(--accentB);padding:4px 7px;border-radius:999px;white-space:nowrap;}
+  .guia-chevron{color:var(--text-faint);font-size:15px;transition:transform .16s ease;}
+  .guia-section[open] .guia-chevron{transform:rotate(180deg);}
+  .guia-body{padding:2px 18px 18px 64px;border-top:1px solid var(--border);}
+  .guia-body h5{font-size:12px;color:var(--text);margin:16px 0 8px;}
+  .guia-steps{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+  .guia-step{display:flex;gap:12px;align-items:flex-start;font-size:12.5px;color:var(--text-muted);line-height:1.5;}
+  .guia-step-num{font-family:var(--fmono);font-size:10px;color:#161208;background:var(--accentB);border-radius:6px;flex-shrink:0;width:25px;height:25px;display:grid;place-items:center;font-weight:700;}
+  .guia-kbd-table{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;font-size:12.5px;max-width:760px;}
   .guia-kbd-table kbd{background:var(--panel-2);border:1px solid var(--border-strong);border-radius:5px;padding:2px 7px;
     font-family:var(--fmono);font-size:11px;color:var(--text);}
   .guia-kbd-table span{color:var(--text-muted);align-self:center;}
-  .guia-tips{display:flex;flex-direction:column;gap:9px;}
+  .guia-tips{display:flex;flex-direction:column;gap:9px;margin-top:12px;}
   .guia-tip{font-size:12.5px;color:var(--text-muted);padding-left:16px;position:relative;line-height:1.5;}
   .guia-tip::before{content:'—';position:absolute;left:0;color:var(--accentA);}
+  .guia-note{border-left:3px solid var(--accentB);background:rgba(224,166,68,.07);padding:11px 13px;border-radius:0 9px 9px 0;color:var(--text-muted);font-size:12px;line-height:1.5;margin-top:14px;}
+  .guia-note strong{color:var(--accentB);}
+  .guia-note.safe{border-color:#4ADE80;background:rgba(74,222,128,.06);}
+  .guia-note.safe strong{color:#4ADE80;}
+  .guia-faq{margin-top:12px;}
+  .guia-faq details{border-bottom:1px solid var(--border);padding:0;}
+  .guia-faq details:last-child{border-bottom:0;}
+  .guia-faq summary{padding:12px 0;font-weight:600;font-size:12.5px;cursor:pointer;color:var(--text);list-style:none;}
+  .guia-faq summary::after{content:'+';float:right;color:var(--accentB);font-size:16px;}
+  .guia-faq details[open] summary::after{content:'−';}
+  .guia-faq p{font-size:12.5px;line-height:1.6;color:var(--text-muted);padding:0 26px 13px 0;}
+  .guia-empty-search{display:none;text-align:center;padding:28px;border:1px dashed var(--border-strong);border-radius:14px;color:var(--text-muted);font-size:13px;}
+  @media(max-width:760px){.guia-route-grid{grid-template-columns:1fr}.guia-hero{padding:20px}.guia-title{font-size:22px}.guia-body{padding:2px 14px 16px}.guia-tag{display:none}.guia-section summary{padding:14px}.guia-summary-icon{width:32px;height:32px}.guia-kbd-table{grid-template-columns:max-content 1fr;gap:8px 12px}}
   /* ---- v8: hero de comando + dock de biblioteca a la derecha ---- */
   .biblioteca-layout{display:flex;height:100%;min-height:520px;}
   .hero-command{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1231,7 +1301,8 @@
       <button class="rail-toggle" id="railToggle" title="Ocultar/mostrar menú">◂</button>
     </div>
     <nav class="rail-nav">
-      <button class="rail-item" data-panel="chatai"><span class="rail-icon">✦</span><span class="rail-label">Chat AI</span></button>
+      <!-- Reserved for a future direct AI workflow. Hidden until the integration is validated. -->
+      <button class="rail-item" data-panel="chatai" hidden aria-hidden="true" tabindex="-1" style="display:none"><span class="rail-icon">✦</span><span class="rail-label">Crear con IA</span></button>
       <button class="rail-item active" data-panel="biblioteca"><span class="rail-icon">▤</span><span class="rail-label">Biblioteca</span></button>
       <button class="rail-item" data-panel="resumen"><span class="rail-icon">◔</span><span class="rail-label">Resumen</span></button>
       <button class="rail-item" data-panel="guia"><span class="rail-icon">◈</span><span class="rail-label">Guía rápida</span></button>
@@ -1244,9 +1315,13 @@
     <header class="shell-header">
       <svg class="shell-logo-mark" width="34" height="34" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" rx="6" fill="none" stroke="url(#headGrad)" stroke-width="1.6"/><rect x="7" y="7" width="8" height="8" rx="2" fill="url(#headGrad)"/><defs><linearGradient id="headGrad" x1="0" y1="0" x2="22" y2="22"><stop offset="0" stop-color="#D4A24C"/><stop offset="1" stop-color="#E8567F"/></linearGradient></defs></svg>
       <div>
-        <div class="shell-title" id="shellWelcome">Bienvenido de nuevo, Wilson</div>
+        <div class="shell-title" id="shellWelcome">Bienvenido a Wilofox</div>
         <div class="shell-desc">Acá preparás lo que vas a narrar en vivo: investigás el tema, armás el guion, ajustás el tema visual, y salís al aire con el panel de control.</div>
       </div>
+      <button class="profile-chip" id="profileChip" title="Editar perfil local" aria-label="Editar perfil local">
+        <span class="profile-avatar" id="profileAvatar">I</span>
+        <span class="profile-chip-copy"><span class="profile-chip-name" id="profileChipName">Invitado</span><span class="profile-chip-role" id="profileChipRole">Modo invitado</span></span>
+      </button>
     </header>
 
     <div class="shell-content">
@@ -1255,15 +1330,15 @@
       <section class="shell-panel" id="panelChatai">
         <div class="hero-command" style="height:100%;">
           <div class="hero-eyebrow"><span class="dot"></span>WILOFOX FOUNDRY</div>
-          <div class="hero-question">¿De qué vamos a hablar hoy, <b>Wilson</b>?</div>
+          <div class="hero-question">¿Qué presentación querés preparar?</div>
           <div class="hero-prompt-box">
             <div class="hero-prompt-row">
-              <textarea id="heroPrompt" placeholder="Ej: Qué son los tokens y por qué cuestan plata" rows="1"></textarea>
-              <button class="hero-send-btn" id="heroSend" title="Crear presentación">↑</button>
+              <textarea id="heroPrompt" placeholder="Ej.: Inteligencia artificial para principiantes" rows="1"></textarea>
+              <button class="hero-send-btn" id="heroSend" title="Preparar contenido con IA">↑</button>
             </div>
             <div class="hero-engine-row">
-              <div class="hero-engine-badge"><span class="dot"></span><span class="engine-name">Claude</span> · listo</div>
-              <span style="font-family:var(--fmono);font-size:10px;color:var(--text-faint);">Enter para crear</span>
+              <div class="hero-engine-badge"><span class="dot"></span><span class="engine-name">Integración directa</span> · próximamente</div>
+              <span style="font-family:var(--fmono);font-size:10px;color:var(--text-faint);">Flujo JSON disponible desde Biblioteca</span>
             </div>
           </div>
           <div class="hero-chips">
@@ -1352,77 +1427,86 @@
       </section>
 
       <section class="shell-panel" id="panelGuia">
-        <div class="lib-wrap">
-          <div class="guia-section">
-            <h4>El flujo, paso a paso</h4>
-            <div class="guia-steps">
-              <div class="guia-step"><span class="guia-step-num">01</span><span>Creá la ficha — título, formato (define cuántas slides y minutos conviene), rubro y categoría.</span></div>
-              <div class="guia-step"><span class="guia-step-num">02</span><span>Investigá con IA o armá el esqueleto a mano — solo títulos de sección y slide, sin contenido todavía.</span></div>
-              <div class="guia-step"><span class="guia-step-num">03</span><span>Reordená el esqueleto — es barato mover títulos, caro reordenar contenido ya escrito.</span></div>
-              <div class="guia-step"><span class="guia-step-num">04</span><span>Desarrollá cada slide — cuerpo, notas del orador, minutos, y el diagrama a mano o con IA Assist.</span></div>
-              <div class="guia-step"><span class="guia-step-num">05</span><span>Revisá el presupuesto de tiempo en el chip del topbar antes de dar por cerrado el guion.</span></div>
-              <div class="guia-step"><span class="guia-step-num">06</span><span>Marcá "Guion listo" y ensayá con Presentar, notas visibles (N).</span></div>
-              <div class="guia-step"><span class="guia-step-num">07</span><span>El día del show: "2 pantallas" — cronómetro, semáforo, y relojes de referencia en el panel de control.</span></div>
+        <div class="lib-wrap guia-wrap">
+          <header class="guia-hero">
+            <div class="guia-eyebrow">Centro de ayuda · Wilofox Deck Studio</div>
+            <h2 class="guia-title">Prepará, presentá y transmití con confianza</h2>
+            <p class="guia-lead">Empezá por el flujo recomendado o buscá una función. Cada sección explica qué hacer, por qué hacerlo y qué conviene revisar.</p>
+            <div class="guia-search">
+              <input id="guiaSearch" type="search" placeholder="Buscar: importar JSON, OBS, puntero, WebMCP…" aria-label="Buscar en la guía">
+              <button class="guia-search-clear" id="guiaSearchClear" aria-label="Limpiar búsqueda">×</button>
             </div>
+          </header>
+
+          <div class="guia-route-grid" aria-label="Rutas rápidas">
+            <button class="guia-route" data-guide-target="guiaInicio"><span class="guia-route-icon">🚀</span><strong>Quiero empezar</strong><small>De la ficha al primer ensayo, en siete pasos.</small></button>
+            <button class="guia-route" data-guide-target="guiaPresentar"><span class="guia-route-icon">🎙️</span><strong>Voy a presentar</strong><small>Atajos, herramientas, dos pantallas y OBS.</small></button>
+            <button class="guia-route" data-guide-target="guiaProblemas"><span class="guia-route-icon">🧯</span><strong>Algo no funciona</strong><small>Respuestas breves a los problemas frecuentes.</small></button>
           </div>
-          <div class="guia-section">
-            <h4>Atajos de teclado — en Presentar</h4>
-            <div class="guia-kbd-table">
-              <kbd>← →</kbd><span>Navegar entre slides</span>
-              <kbd>F</kbd><span>Modo focus — solo el diagrama (columna derecha)</span>
-              <kbd>D</kbd><span>Modo contenido — solo el texto (columna izquierda)</span>
-              <kbd>N</kbd><span>Mostrar/ocultar notas del orador</span>
-              <kbd>S</kbd><span>Mostrar/ocultar sidebar de secciones (títulos)</span>
-              <kbd>A</kbd><span>Mostrar/ocultar caja de herramientas — cuando está oculta, aparece un chip en el borde izquierdo para reabrirla</span>
-              <kbd>A</kbd><span>Abrir/cerrar el panel de formas (líneas, flechas, rectángulos, etc.)</span>
-              <kbd>G</kbd><span>Mostrar/ocultar sidebar derecho para cámara y chat vía OBS</span>
-            </div>
-          </div>
-          <div class="guia-section">
-            <h4>Caja de herramientas — en Presentar</h4>
-            <div class="guia-kbd-table">
-              <kbd>V</kbd><span>Mouse — cursor normal, desactiva herramienta activa</span>
-              <kbd>L</kbd><span>Puntero láser — punto rojo con estela animada · sub-barra: tamaño S/M/L</span>
-              <kbd>P</kbd><span>Pluma — trazos finos opacos · sub-barra: 4 grosores</span>
-              <kbd>M</kbd><span>Marcador — trazos anchos 38% opacidad · sub-barra: 3 grosores</span>
-              <kbd>K</kbd><span>Paleta de color — 6 colores predefinidos + picker personalizado</span>
-              <kbd>=</kbd><span>Zoom + (también scroll ↑) — acerca en pasos de 25% hasta 350%</span>
-              <kbd>−</kbd><span>Zoom − (también scroll ↓) — aleja · clic derecho resetea a 100%</span>
-              <kbd>H</kbd><span>Mover — hacer pan cuando zoom &gt; 100% activo</span>
-              <kbd>X</kbd><span>Borrar todos los trazos del canvas</span>
-              <kbd>Ctrl Z</kbd><span>Deshacer último trazo (pila de hasta 40 estados)</span>
-              <kbd>Ctrl Y</kbd><span>Rehacer trazo deshecho</span>
-              <kbd>Esc</kbd><span>Cancelar herramienta activa → Esc de nuevo: salir presentación</span>
-            </div>
-          </div>
-          <div class="guia-section">
-            <h4>Panel de control — 2 pantallas</h4>
-            <div class="guia-kbd-table">
-              <kbd>▶ Iniciar</kbd><span>Arranca el cronómetro del show desde cero</span>
-              <kbd>Pantalla en negro</kbd><span>Congela lo que ve la audiencia sin cerrar la presentación</span>
-              <kbd>Clic derecho</kbd><span>Resetea el zoom a 100% desde cualquier nivel</span>
-            </div>
-          </div>
-          <div class="guia-section">
-            <h4>Biblioteca</h4>
-            <div class="guia-kbd-table">
-              <kbd>⊞</kbd><span>Vista grilla — tarjetas, mejor para pocas presentaciones</span>
-              <kbd>≡</kbd><span>Vista lista — filas compactas, mejor para 15+ presentaciones</span>
-              <kbd>Pills de filtro</kbd><span>Clic para filtrar · × en el pill para quitar ese filtro</span>
-              <kbd>Ordenar</kbd><span>Más reciente / Más antiguo / Nombre A–Z</span>
-            </div>
-          </div>
-          <div class="guia-section">
-            <h4>Recomendaciones</h4>
-            <div class="guia-tips">
-              <div class="guia-tip">Verificá cualquier cifra o precio que traiga la IA antes de confiar — la fuente está en cada clip, abrila.</div>
-              <div class="guia-tip">Usá el generador de esqueleto solo al arrancar un deck — reemplaza el esquema actual.</div>
-              <div class="guia-tip">Las notas del orador no se ven en la ventana de presentación capturada por OBS — usá siempre "2 pantallas" para el show real.</div>
-              <div class="guia-tip">Duplicá un deck antes de adaptarlo a otro formato (ej. Live → Short).</div>
-              <div class="guia-tip">El sidebar de la biblioteca se oculta con ◂/▸ — más espacio de trabajo sin perder navegación.</div>
-              <div class="guia-tip">La caja de herramientas del presentador está fija fuera del zoom — escala el contenido, no los controles.</div>
-              <div class="guia-tip">Ctrl+Z deshace por trazo completo (de mousedown a mouseup), no pixel por pixel.</div>
-            </div>
+          <div class="guia-results" id="guiaResults" aria-live="polite"></div>
+          <div class="guia-empty-search" id="guiaEmptySearch">No encontramos ese tema. Probá con “JSON”, “OBS”, “notas”, “guardar” o “WebMCP”.</div>
+
+          <div class="guia-accordion" id="guiaAccordion">
+            <details class="guia-section" id="guiaInicio" open>
+              <summary><span class="guia-summary-icon">🧭</span><span class="guia-summary-copy"><h4>Inicio rápido en siete pasos</h4><small>El recorrido recomendado para evitar retrabajo.</small></span><span class="guia-tag">Empezá aquí</span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-steps">
+                <div class="guia-step"><span class="guia-step-num">01</span><span><b>Creá la ficha.</b> Definí título, formato, rubro, categoría y estado. El formato orienta los minutos y la cantidad de slides.</span></div>
+                <div class="guia-step"><span class="guia-step-num">02</span><span><b>Investigá y armá el esqueleto.</b> Empezá solo con secciones y títulos; todavía no desarrolles todos los párrafos.</span></div>
+                <div class="guia-step"><span class="guia-step-num">03</span><span><b>Reordená la secuencia.</b> Es más fácil mover títulos ahora que reorganizar contenido terminado.</span></div>
+                <div class="guia-step"><span class="guia-step-num">04</span><span><b>Desarrollá cada slide.</b> Completá título, cuerpo, etiquetas, notas, minutos y un recurso visual.</span></div>
+                <div class="guia-step"><span class="guia-step-num">05</span><span><b>Revisá el tiempo.</b> El chip de la barra superior suma los minutos estimados y los compara con el formato.</span></div>
+                <div class="guia-step"><span class="guia-step-num">06</span><span><b>Marcá “Guion listo” y ensayá.</b> Abrí Presentar y usá <kbd>N</kbd> para revisar las notas.</span></div>
+                <div class="guia-step"><span class="guia-step-num">07</span><span><b>Usá “2 pantallas” en vivo.</b> Separá la audiencia del panel privado con cronómetro, semáforo y notas.</span></div>
+              </div><div class="guia-note"><strong>Consejo:</strong> duplicá un ejemplo incluido antes de editarlo. Así conservás una referencia limpia.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaBiblioteca">
+              <summary><span class="guia-summary-icon">🗂️</span><span class="guia-summary-copy"><h4>Biblioteca y ficha</h4><small>Crear, organizar, filtrar, duplicar e importar.</small></span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><h5>Elegí la vista adecuada</h5><div class="guia-kbd-table"><kbd>⊞ Grilla</kbd><span>Ideal para pocas presentaciones y reconocimiento visual.</span><kbd>≡ Lista</kbd><span>Filas compactas, recomendadas cuando tenés 15 o más decks.</span><kbd>Filtros</kbd><span>Combiná rubro, serie, estado y formato; usá × para retirar un filtro.</span><kbd>Ordenar</kbd><span>Más reciente, más antiguo o nombre A–Z.</span></div><div class="guia-tips"><div class="guia-tip"><b>Editar</b> abre el deck; <b>Duplicar</b> crea una versión segura para adaptar.</div><div class="guia-tip"><b>Exportar JSON</b> crea un respaldo portable.</div><div class="guia-tip"><b>Incluida</b> identifica una presentación de ejemplo cargada por defecto.</div></div></div>
+            </details>
+
+            <details class="guia-section" id="guiaJSON">
+              <summary><span class="guia-summary-icon">{ }</span><span class="guia-summary-copy"><h4>Preparar contenido con una plantilla JSON</h4><small>Usá ChatGPT u otra IA sin afirmar una integración directa.</small></span><span class="guia-tag">Flujo actual</span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-steps"><div class="guia-step"><span class="guia-step-num">01</span><span>En Biblioteca, descargá la <b>Plantilla</b>.</span></div><div class="guia-step"><span class="guia-step-num">02</span><span>Adjuntala a ChatGPT y pedile completar el tema, respetando exactamente la estructura.</span></div><div class="guia-step"><span class="guia-step-num">03</span><span>Solicitá solamente JSON válido, sin bloques Markdown ni explicaciones externas.</span></div><div class="guia-step"><span class="guia-step-num">04</span><span>Guardá el resultado con extensión <b>.json</b> e importalo en Wilofox.</span></div><div class="guia-step"><span class="guia-step-num">05</span><span>Revisá fuentes, cifras, tiempos y recursos visuales antes de presentar.</span></div></div><div class="guia-note"><strong>Importante:</strong> el chat directo dentro de Wilofox está previsto para una versión futura. Hoy el flujo confiable es plantilla JSON + importación.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaEditor">
+              <summary><span class="guia-summary-icon">✍️</span><span class="guia-summary-copy"><h4>Editor, narración y recursos visuales</h4><small>Contenido, notas privadas, tiempo, diagramas, imagen y video.</small></span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-kbd-table"><kbd>Contenido</kbd><span>Una idea principal por slide: eyebrow, título, cuerpo breve y etiquetas.</span><kbd>Notas</kbd><span>Guardá el ejemplo oral, la fuente, la transición o una pregunta para la audiencia.</span><kbd>Minutos</kbd><span>Asigná una duración realista; alimenta el presupuesto y el semáforo.</span><kbd>Visual</kbd><span>Elegí entre diagramas, imagen, video, código, iframe o SVG personalizado.</span><kbd>Progresivo</kbd><span>Activá “Revelar de a uno” solo si la explicación necesita una secuencia.</span></div><div class="guia-note safe"><strong>Autoguardado:</strong> los cambios se guardan localmente después de una breve pausa. Aun así, exportá JSON para proteger trabajos importantes.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaPresentar">
+              <summary><span class="guia-summary-icon">🎯</span><span class="guia-summary-copy"><h4>Presentar: atajos y herramientas</h4><small>Navegación, foco, anotaciones, zoom y apoyo visual.</small></span><span class="guia-tag">Ensayá antes</span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><h5>Navegación y vistas</h5><div class="guia-kbd-table"><kbd>← →</kbd><span>Slide anterior o siguiente.</span><kbd>Espacio</kbd><span>Revela el siguiente elemento progresivo; al terminar, avanza.</span><kbd>F</kbd><span>Modo focus: muestra solo el recurso visual.</span><kbd>D</kbd><span>Modo contenido: muestra solo el texto.</span><kbd>N</kbd><span>Muestra u oculta las notas en el ensayo de una pantalla.</span><kbd>S</kbd><span>Muestra u oculta la lista de secciones.</span><kbd>A</kbd><span>Muestra u oculta la caja de herramientas.</span><kbd>B</kbd><span>Abre o cierra el panel de formas.</span><kbd>G</kbd><span>Muestra u oculta las zonas para cámara y chat de OBS.</span></div><h5>Herramientas del canvas</h5><div class="guia-kbd-table"><kbd>V</kbd><span>Mouse y desactivación de la herramienta actual.</span><kbd>L</kbd><span>Puntero láser con tamaños S, M y L.</span><kbd>P</kbd><span>Pluma opaca en cuatro grosores.</span><kbd>M</kbd><span>Marcador ancho con 38 % de opacidad.</span><kbd>K</kbd><span>Paleta con seis colores y selector personalizado.</span><kbd>= / −</kbd><span>Zoom en pasos de 25 %, hasta 350 %.</span><kbd>H</kbd><span>Mover el contenido cuando el zoom supera 100 %.</span><kbd>W</kbd><span>Insertar texto sobre el canvas.</span><kbd>X</kbd><span>Borrar todos los trazos del modo actual.</span><kbd>Ctrl Z / Y</kbd><span>Deshacer o rehacer por trazo completo.</span><kbd>Esc</kbd><span>Cancela la herramienta; un segundo Esc sale de Presentar.</span></div></div>
+            </details>
+
+            <details class="guia-section" id="guiaOBS">
+              <summary><span class="guia-summary-icon">🖥️</span><span class="guia-summary-copy"><h4>Dos pantallas y OBS</h4><small>Audiencia limpia y controles privados para el expositor.</small></span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-steps"><div class="guia-step"><span class="guia-step-num">01</span><span>Permití las ventanas emergentes del sitio.</span></div><div class="guia-step"><span class="guia-step-num">02</span><span>Pulsá <b>2 pantallas</b> y mové la ventana de audiencia al monitor o proyector.</span></div><div class="guia-step"><span class="guia-step-num">03</span><span>Dejá el panel de control en tu monitor privado.</span></div><div class="guia-step"><span class="guia-step-num">04</span><span>En OBS, agregá <b>Captura de ventana</b> y seleccioná “Wilofox — Presentación”.</span></div><div class="guia-step"><span class="guia-step-num">05</span><span>Pulsá <b>Iniciar</b> al comenzar. Usá “Pantalla en negro” para ocultar temporalmente la audiencia.</span></div></div><div class="guia-note safe"><strong>Privacidad:</strong> las notas del orador no aparecen en la ventana de audiencia. No captures el panel de control en OBS.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaWebMCP">
+              <summary><span class="guia-summary-icon">✦</span><span class="guia-summary-copy"><h4>WebMCP: trabajar con un agente compatible</h4><small>Cuatro herramientas estructuradas sobre el mismo deck visible.</small></span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-kbd-table"><kbd>create_deck</kbd><span>Crea una presentación editable a partir de secciones y slides.</span><kbd>get_deck_context</kbd><span>Lee el estado actual, incluidas tus modificaciones recientes.</span><kbd>update_slide</kbd><span>Actualiza un slide específico sin reemplazar el resto.</span><kbd>navigate_to_slide</kbd><span>Abre el slide solicitado para revisarlo juntos.</span></div><div class="guia-note"><strong>Compatibilidad:</strong> usá el navegador interno de ChatGPT o Chrome con WebMCP habilitado. El indicador inferior confirma si hay cuatro herramientas activas.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaRespaldo">
+              <summary><span class="guia-summary-icon">🛡️</span><span class="guia-summary-copy"><h4>Respaldar, exportar y recuperar</h4><small>Protegé tu trabajo y elegí el formato de salida.</small></span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-kbd-table"><kbd>JSON</kbd><span>Respaldo completo y reimportable en Wilofox.</span><kbd>HTML</kbd><span>Presentación autónoma para abrir en un navegador.</span><kbd>PDF</kbd><span>Revisión, impresión o distribución estática.</span><kbd>PPTX</kbd><span>Entrega editable para personas que usan PowerPoint.</span><kbd>Historial</kbd><span>Recupera instantáneas locales recientes del deck.</span></div><div class="guia-note"><strong>No confíes solo en el navegador:</strong> IndexedDB, el historial y los decks son locales. Exportá JSON y guardalo también fuera del equipo.</div></div>
+            </details>
+
+            <details class="guia-section" id="guiaProblemas">
+              <summary><span class="guia-summary-icon">?</span><span class="guia-summary-copy"><h4>Preguntas frecuentes y soluciones</h4><small>Respuestas directas antes de borrar datos o empezar de nuevo.</small></span><span class="guia-tag">Ayuda</span><span class="guia-chevron">⌄</span></summary>
+              <div class="guia-body"><div class="guia-faq">
+                <details><summary>¿Por qué mi Biblioteca aparece vacía?</summary><p>Los decks se guardan en el perfil y navegador actual. Verificá que estés usando el mismo perfil. También podés cargar un ejemplo, crear un deck o importar un respaldo JSON.</p></details>
+                <details><summary>¿Por qué no se abre “2 pantallas”?</summary><p>El navegador probablemente bloqueó la ventana emergente. Permití pop-ups para Wilofox, recargá la página y volvé a pulsar el botón.</p></details>
+                <details><summary>¿Por qué una imagen o iframe no carga?</summary><p>El servidor externo puede bloquear la inserción, hotlinking o CORS. Probá una URL pública directa o un alojamiento compatible y verificá el recurso antes de presentar.</p></details>
+                <details><summary>¿Por qué no veo las herramientas WebMCP?</summary><p>Tu navegador no es compatible o la función no está habilitada. Usá el navegador interno de ChatGPT o Chrome con “WebMCP for testing” activado y reiniciado.</p></details>
+                <details><summary>¿Se ven mis notas en OBS?</summary><p>No si capturás la ventana de audiencia creada por “2 pantallas”. Evitá capturar el panel de control, porque contiene información privada.</p></details>
+                <details><summary>¿Cómo evito perder una presentación?</summary><p>Exportá un JSON después de cada sesión importante y antes de usar Reset demo o borrar datos del sitio. Probá ese archivo en otro perfil antes de una presentación en vivo.</p></details>
+                <details><summary>¿La IA está integrada directamente?</summary><p>El chat directo está planificado para una versión futura. Actualmente podés usar la plantilla JSON con ChatGPT o colaborar mediante WebMCP en un entorno compatible.</p></details>
+              </div><div class="guia-note"><strong>Antes de limpiar caché o datos del sitio:</strong> exportá todos los decks importantes. Esa limpieza puede borrar la Biblioteca y el historial local.</div></div>
+            </details>
           </div>
         </div>
       </section>
@@ -2027,12 +2111,27 @@
 <div class="modal-overlay" id="configModal">
   <div class="modal" style="max-width:640px;">
     <h2>Configuración</h2>
-    <div class="modal-sub">Rubros, categorías, formatos, estados y relojes — el vocabulario que usa toda la biblioteca.</div>
+    <div class="modal-sub">Personalizá este navegador y administrá el vocabulario que usa toda la biblioteca.</div>
     <div class="cfg-tabs" id="cfgTabs"></div>
     <div id="cfgBody"></div>
     <div class="modal-actions">
       <button class="btn primary" id="cfgClose">Listo</button>
     </div>
+  </div>
+</div>
+
+<!-- Perfil local opcional: personaliza este navegador, no autentica ni sincroniza. -->
+<div class="modal-overlay" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="modal welcome-modal">
+    <div class="welcome-mark" aria-hidden="true"><svg viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" rx="6" fill="none" stroke="#D4A24C" stroke-width="1.6"/><rect x="7" y="7" width="8" height="8" rx="2" fill="#E8567F"/></svg></div>
+    <h2 id="welcomeTitle">Te damos la bienvenida a Wilofox</h2>
+    <div class="modal-sub">Prepará presentaciones visuales, organizá tus ideas y controlá cada momento de tu exposición.</div>
+    <div class="welcome-fields">
+      <label class="field"><span class="lbl">¿Cómo querés que te llamemos?</span><input id="welcomeName" maxlength="40" autocomplete="name" placeholder="Tu nombre"></label>
+      <label class="field"><span class="lbl">Tu actividad</span><select id="welcomeRole"><option value="Docente">Docente</option><option value="Creador">Creador</option><option value="Presentador">Presentador</option><option value="Estudiante">Estudiante</option><option value="Otro">Otro</option></select></label>
+    </div>
+    <div class="welcome-privacy"><span class="dot"></span><span>Tu nombre, preferencia y presentaciones se guardan solamente en este navegador. No necesitás crear una cuenta ni una contraseña.</span></div>
+    <div class="welcome-actions"><button class="btn" id="welcomeGuest">Explorar como invitado</button><button class="btn primary" id="welcomeContinue">Continuar</button></div>
   </div>
 </div>
 
@@ -2065,6 +2164,50 @@ function defaultMeta(){
 }
 let META = defaultMeta();
 let pendingImportData = null; // stash del deck/theme/research parseado de un JSON importado, hasta que se guarde la ficha
+
+/* ======================= PERFIL LOCAL (NO ES AUTENTICACIÓN) ======================= */
+const LOCAL_PROFILE_KEY='wilofox-local-profile-v1';
+const PROFILE_ROLES=['Docente','Creador','Presentador','Estudiante','Otro'];
+function defaultLocalProfile(){ return {name:'',role:'Presentador',guest:true,welcomeSeen:false}; }
+function loadLocalProfile(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(LOCAL_PROFILE_KEY)||'null');
+    if(!saved || typeof saved!=='object') return defaultLocalProfile();
+    const name=String(saved.name||'').trim().slice(0,40);
+    const role=PROFILE_ROLES.includes(saved.role)?saved.role:'Presentador';
+    return {name,role,guest:!!saved.guest,welcomeSeen:!!saved.welcomeSeen};
+  }catch(_){ return defaultLocalProfile(); }
+}
+function saveLocalProfile(profile){
+  const clean={name:String(profile.name||'').trim().slice(0,40),role:PROFILE_ROLES.includes(profile.role)?profile.role:'Presentador',guest:!!profile.guest,welcomeSeen:true};
+  try{ localStorage.setItem(LOCAL_PROFILE_KEY,JSON.stringify(clean)); }catch(_){ /* La app sigue disponible aunque el navegador bloquee localStorage. */ }
+  applyLocalProfile(clean); return clean;
+}
+function profileInitials(name){
+  const parts=String(name||'Invitado').trim().split(/\s+/).filter(Boolean).slice(0,2);
+  return (parts.map(p=>p[0]).join('')||'I').toUpperCase();
+}
+function applyLocalProfile(profile=loadLocalProfile()){
+  const displayName=profile.guest||!profile.name?'Invitado':profile.name;
+  const welcome=document.getElementById('shellWelcome');
+  if(welcome) welcome.textContent=profile.guest?'Bienvenido a Wilofox':'Bienvenido de nuevo, '+displayName;
+  const avatar=document.getElementById('profileAvatar'); if(avatar) avatar.textContent=profileInitials(displayName);
+  const chipName=document.getElementById('profileChipName'); if(chipName) chipName.textContent=displayName;
+  const chipRole=document.getElementById('profileChipRole'); if(chipRole) chipRole.textContent=profile.guest?'Modo invitado':profile.role;
+  const question=document.querySelector('#panelChatai .hero-question');
+  if(question){ question.textContent='¿Qué presentación querés preparar'; if(!profile.guest){ question.append(', '); const b=document.createElement('b'); b.textContent=displayName; question.appendChild(b); } question.append('?'); }
+}
+function openWelcomeModal(){
+  const profile=loadLocalProfile();
+  document.getElementById('welcomeName').value=profile.guest?'':profile.name;
+  document.getElementById('welcomeRole').value=profile.role;
+  document.getElementById('welcomeModal').classList.add('on');
+  setTimeout(()=>document.getElementById('welcomeName').focus(),60);
+}
+function initLocalProfile(){
+  const profile=loadLocalProfile(); applyLocalProfile(profile);
+  if(!profile.welcomeSeen) openWelcomeModal();
+}
 
 async function loadCatalogs(){
   [RUBROS, CATEGORIAS, FORMATOS_CAT, ESTADOS_CAT, TIMEZONES] = await Promise.all([
@@ -2183,6 +2326,47 @@ const DeckRepository = Object.assign({}, DeckRepositoryRaw, {
 const RubroRepo=makeRepository('rubros'), CategoriaRepo=makeRepository('categorias'),
   FormatoRepo=makeRepository('formatos'), EstadoRepo=makeRepository('estados'), TimezoneRepo=makeRepository('timezones');
 const VersionRepo=makeRepository(VERSIONS_STORE);
+
+/* Presentaciones de ejemplo incluidas. Se instalan una sola vez por navegador y
+   nunca sobrescriben una copia que el usuario ya haya editado. */
+const INCLUDED_DECKS = [
+  {
+    id:'included-como-elegir-ia-2026',
+    url:'examples/como-elegir-ia-2026.json',
+    meta:{formatoId:'fmt-live-yt',rubroId:'rubro-ia',categoriaId:'cat-modelos',estadoId:'est-guion'}
+  },
+  {
+    id:'included-fundamentos-ia',
+    url:'examples/fundamentos-ia.json',
+    meta:{formatoId:'fmt-live-yt',rubroId:'rubro-ia',categoriaId:'cat-modelos',estadoId:'est-guion'}
+  }
+];
+async function seedIncludedDecks(){
+  const marker='wilofox-included-decks-v1';
+  try{ if(localStorage.getItem(marker)==='done') return; }catch(_){ /* IndexedDB sigue disponible */ }
+  const now=Date.now();
+  for(let i=0;i<INCLUDED_DECKS.length;i++){
+    const item=INCLUDED_DECKS[i];
+    if(await DeckRepository.get(item.id)) continue;
+    const response=await fetch(item.url,{cache:'force-cache'});
+    if(!response.ok) throw new Error('No se pudo cargar la presentación incluida: '+item.url);
+    const data=await response.json();
+    if(!Array.isArray(data.deck) || data.deck.length===0) throw new Error('Presentación incluida inválida: '+item.url);
+    await DeckRepository.save({
+      id:item.id,
+      title:data.title||'Presentación de ejemplo',
+      theme:data.theme||defaultTheme(),
+      meta:Object.assign(defaultMeta(),data.meta||{},item.meta),
+      deck:data.deck,
+      research:Array.isArray(data.research)?data.research:[],
+      isIncluded:true,
+      includedKey:item.id,
+      createdAt:now-(i*1000),
+      updatedAt:now-(i*1000)
+    });
+  }
+  try{ localStorage.setItem(marker,'done'); }catch(_){ /* no bloquea la biblioteca */ }
+}
 function newId(){ return (crypto.randomUUID ? crypto.randomUUID() : 'd'+Date.now()+Math.random().toString(36).slice(2)); }
 function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function timeAgo(ts){
@@ -3167,6 +3351,7 @@ async function renderLibrary(){
         <div class="deck-card-title">${escapeHtml(d.title||'Sin título')}</div>
         <div class="deck-card-meta">${secCount} secciones · ${slideCount} slides${mins?' · ≈'+Math.round(mins)+' min':''}</div>
         <div class="deck-card-badges">
+          ${d.isIncluded?'<span class="badge included" title="Presentación de ejemplo incluida con Wilofox"><span class="included-mark" aria-hidden="true">✦</span> Incluida</span>':''}
           <span class="badge" style="color:${estadoColor};border-color:${estadoColor}66">${escapeHtml(estadoNom)}</span>
           <span class="badge">${escapeHtml(formatoNom)}</span>
           ${serieTxt?`<span class="badge">${serieTxt}</span>`:''}
@@ -3316,6 +3501,7 @@ async function loadDemoAsNewDeck(){
 
 /* ======================= CONFIGURACIÓN — CRUD de catálogos ======================= */
 const CFG_TABS = [
+  { key:'perfil',      label:'Perfil local' },
   { key:'rubros',     label:'Rubros' },
   { key:'categorias', label:'Categorías' },
   { key:'formatos',   label:'Formatos' },
@@ -3338,6 +3524,7 @@ function renderCfgTabs(){
 }
 async function renderCfgBody(){
   const body=document.getElementById('cfgBody'); body.innerHTML='';
+  if(cfgActiveTab==='perfil') return renderCfgProfile(body);
   if(cfgActiveTab==='rubros') return renderCfgRubros(body);
   if(cfgActiveTab==='categorias') return renderCfgCategorias(body);
   if(cfgActiveTab==='formatos') return renderCfgFormatos(body);
@@ -3345,6 +3532,31 @@ async function renderCfgBody(){
   if(cfgActiveTab==='timezones') return renderCfgTimezones(body);
 }
 function cfgRefreshAfterEdit(){ loadCatalogs().then(()=>{ renderCfgBody(); if(document.body.classList.contains('view-studio')) renderFichaPanel(); }); }
+
+function renderCfgProfile(body){
+  const profile=loadLocalProfile(); const displayName=profile.guest?'Invitado':(profile.name||'Invitado');
+  const panel=document.createElement('div'); panel.className='profile-panel';
+  const avatar=document.createElement('div'); avatar.className='profile-avatar large'; avatar.textContent=profileInitials(displayName);
+  const content=document.createElement('div');
+  const title=document.createElement('div'); title.style.cssText='font-family:var(--fdisplay);font-size:17px;font-weight:600;'; title.textContent=displayName;
+  const badge=document.createElement('div'); badge.className='profile-local-badge'; badge.textContent='● Guardado solo en este navegador';
+  content.append(title,badge); panel.append(avatar,content); body.appendChild(panel);
+  const grid=document.createElement('div'); grid.className='profile-settings-grid';
+  grid.innerHTML='<label class="field"><span class="lbl">Nombre visible</span><input id="cfgProfileName" maxlength="40" placeholder="Tu nombre"></label><label class="field"><span class="lbl">Actividad</span><select id="cfgProfileRole"></select></label>';
+  body.appendChild(grid);
+  const nameInput=grid.querySelector('#cfgProfileName'); nameInput.value=profile.guest?'':profile.name;
+  const roleSelect=grid.querySelector('#cfgProfileRole'); PROFILE_ROLES.forEach(role=>{ const option=document.createElement('option'); option.value=role; option.textContent=role; option.selected=role===profile.role; roleSelect.appendChild(option); });
+  const help=document.createElement('div'); help.className='profile-help'; help.textContent='Este perfil personaliza la bienvenida. No crea una cuenta, no usa contraseña y no sincroniza presentaciones entre dispositivos.'; body.appendChild(help);
+  const actions=document.createElement('div'); actions.className='modal-actions'; actions.style.marginTop='14px';
+  const deleteBtn=document.createElement('button'); deleteBtn.className='btn danger'; deleteBtn.textContent='Borrar perfil local'; deleteBtn.style.marginRight='auto';
+  const guestBtn=document.createElement('button'); guestBtn.className='btn'; guestBtn.textContent='Usar modo invitado';
+  const saveBtn=document.createElement('button'); saveBtn.className='btn primary'; saveBtn.textContent='Guardar perfil';
+  guestBtn.onclick=()=>{ saveLocalProfile({name:'',role:roleSelect.value,guest:true}); renderCfgProfileAfterChange(); };
+  saveBtn.onclick=()=>{ const name=nameInput.value.trim(); if(!name){ nameInput.focus(); return; } saveLocalProfile({name,role:roleSelect.value,guest:false}); renderCfgProfileAfterChange(); };
+  deleteBtn.onclick=()=>{ if(!confirm('¿Borrar solamente el perfil local? Tus presentaciones no se eliminarán.')) return; try{ localStorage.removeItem(LOCAL_PROFILE_KEY); }catch(_){} applyLocalProfile(defaultLocalProfile()); document.getElementById('configModal').classList.remove('on'); openWelcomeModal(); };
+  actions.append(deleteBtn,guestBtn,saveBtn); body.appendChild(actions);
+}
+function renderCfgProfileAfterChange(){ const body=document.getElementById('cfgBody'); body.innerHTML=''; renderCfgProfile(body); }
 
 function renderCfgRubros(body){
   if(RUBROS.length===0) body.appendChild(el('div','cfg-empty','Todavía no hay rubros.'));
@@ -3492,6 +3704,20 @@ document.getElementById('cfgClose').addEventListener('click', async ()=>{
 });
 document.getElementById('configModal').addEventListener('click', (e)=>{ if(e.target.id==='configModal') e.currentTarget.classList.remove('on'); });
 document.getElementById('railConfig').addEventListener('click', openConfigModal);
+document.getElementById('profileChip').addEventListener('click', ()=>{ cfgActiveTab='perfil'; openConfigModal(); });
+document.getElementById('welcomeContinue').addEventListener('click', ()=>{
+  const input=document.getElementById('welcomeName'); const name=input.value.trim();
+  if(!name){ input.focus(); return; }
+  saveLocalProfile({name,role:document.getElementById('welcomeRole').value,guest:false});
+  document.getElementById('welcomeModal').classList.remove('on');
+});
+document.getElementById('welcomeGuest').addEventListener('click', ()=>{
+  saveLocalProfile({name:'',role:document.getElementById('welcomeRole').value,guest:true});
+  document.getElementById('welcomeModal').classList.remove('on');
+});
+document.getElementById('welcomeName').addEventListener('keydown', event=>{
+  if(event.key==='Enter'){ event.preventDefault(); document.getElementById('welcomeContinue').click(); }
+});
 
 /* ======================= HERO DE COMANDO ======================= */
 function goToPanel(panelKey){
@@ -3602,6 +3828,7 @@ async function renderResumenPanel(){
 async function duplicateDeck(id){
   const record=await DeckRepository.get(id); if(!record) return;
   const copy=JSON.parse(JSON.stringify(record));
+  delete copy.isIncluded; delete copy.includedKey;
   copy.id=newId(); copy.title=(record.title||'Sin título')+' (copia)'; copy.meta=Object.assign(defaultMeta(), record.meta||{}); copy.research=JSON.parse(JSON.stringify(record.research||[])); copy.createdAt=Date.now(); copy.updatedAt=Date.now();
   await DeckRepository.save(copy);
   renderLibrary();
@@ -6285,6 +6512,47 @@ document.getElementById('ptRecall').addEventListener('click',()=>{
 });
 
 // Tecla A para formas
+/* ======================= GUÍA RÁPIDA ======================= */
+(function setupQuickGuide(){
+  const search=document.getElementById('guiaSearch');
+  const clear=document.getElementById('guiaSearchClear');
+  const accordion=document.getElementById('guiaAccordion');
+  const results=document.getElementById('guiaResults');
+  const empty=document.getElementById('guiaEmptySearch');
+  if(!search || !accordion) return;
+  const sections=[...accordion.querySelectorAll(':scope > .guia-section')];
+  const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  const filterGuide=()=>{
+    const query=normalize(search.value);
+    let visible=0;
+    sections.forEach(section=>{
+      const match=!query || normalize(section.textContent).includes(query);
+      section.hidden=!match;
+      if(match){ visible++; if(query) section.open=true; }
+    });
+    clear.style.display=query?'block':'none';
+    results.style.display=query?'block':'none';
+    results.textContent=query?(visible===1?'1 sección encontrada':visible+' secciones encontradas'):'';
+    empty.style.display=query && visible===0?'block':'none';
+  };
+  search.addEventListener('input',filterGuide);
+  search.addEventListener('keydown',event=>{
+    if(event.key==='Escape' && search.value){ search.value=''; filterGuide(); search.focus(); }
+  });
+  clear.addEventListener('click',()=>{
+    search.value=''; filterGuide(); search.focus();
+  });
+  document.querySelectorAll('[data-guide-target]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const target=document.getElementById(button.dataset.guideTarget);
+      if(!target) return;
+      search.value=''; filterGuide(); target.hidden=false; target.open=true;
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      target.querySelector('summary')?.focus({preventScroll:true});
+    });
+  });
+})();
+
 /* ======================= INIT ======================= */
 applyThemeToRoot();
 // ptBar: sacar del presentRoot para que position:fixed no quede atrapado en el transform
@@ -6432,7 +6700,11 @@ async function installWebMCPTools(){
 if(isPresentWindow){
   document.body.classList.remove('view-library');
 } else {
-  seedCatalogsIfEmpty().then(renderLibrary);
+  initLocalProfile();
+  seedCatalogsIfEmpty()
+    .then(seedIncludedDecks)
+    .catch(error=>console.warn('No se pudieron preparar las presentaciones incluidas',error))
+    .finally(renderLibrary);
   installWebMCPTools();
 }
 </script>

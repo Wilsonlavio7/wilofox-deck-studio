@@ -1,0 +1,948 @@
+{
+  "title": "Fundamentos de Inteligencia Artificial",
+  "meta": {
+    "subcategoria": "IA para principiantes",
+    "serie": "Fundamentos de IA",
+    "episodio": "01"
+  },
+  "deck": [
+    {
+      "title": "Mapa mental de la IA",
+      "slides": [
+        {
+          "eyebrow": "01 · FUNDAMENTOS",
+          "title": "IA no es una sola cosa",
+          "body": "Inteligencia artificial es el campo amplio. Dentro conviven machine learning, redes neuronales e IA generativa capaz de producir texto, imagen, audio, video y código.",
+          "tags": [
+            "IA",
+            "mapa mental",
+            "generativa"
+          ],
+          "notes": "Micro-copy: «Primero ubiquémonos en el mapa». Evita definiciones largas; el objetivo es orientar.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "layers",
+            "labels": [
+              "Inteligencia artificial",
+              "Machine learning",
+              "Redes neuronales",
+              "IA generativa"
+            ],
+            "activeIndex": 3
+          }
+        },
+        {
+          "eyebrow": "02 · FUNDAMENTOS",
+          "title": "Empresa, producto y modelo son capas distintas",
+          "body": "La empresa desarrolla tecnología; el producto es la experiencia que usamos; el modelo es el motor que procesa la solicitud. Separar estas capas evita confundir una app con la IA que trabaja detrás.",
+          "tags": [
+            "empresa",
+            "producto",
+            "modelo"
+          ],
+          "notes": "Micro-copy: «La app es la puerta; el modelo es el motor». Usa marcas concretas como ejemplo oral para que el slide no caduque.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "custom",
+            "heading": "Tres capas",
+            "svg": "<svg viewBox=\"0 0 340 200\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"18\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"50\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Empresa</text><text x=\"50\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">crea</text><path d=\"M85 94 H95 M91 90 L95 94 L91 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"98\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"130\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Producto</text><text x=\"130\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">conecta</text><path d=\"M165 94 H175 M171 90 L175 94 L171 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"178\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"210\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Modelo</text><text x=\"210\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">procesa</text><path d=\"M245 94 H255 M251 90 L255 94 L251 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"258\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"290\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Salida</text><text x=\"290\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">entrega</text></svg>"
+          }
+        },
+        {
+          "eyebrow": "03 · FUNDAMENTOS",
+          "title": "Un producto puede cambiar de modelo según la tarea",
+          "body": "La misma interfaz puede ofrecer modelos con perfiles diferentes: velocidad, razonamiento, creatividad o uso de herramientas. Elegir modelo también es parte de resolver bien el problema.",
+          "tags": [
+            "modelos",
+            "selección",
+            "tarea"
+          ],
+          "notes": "Micro-copy: «No elijas por fama; elige por tarea».",
+          "minutes": 2,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "⚡",
+                "title": "Rápido",
+                "sub": "Chat · resumen",
+                "color": "blue"
+              },
+              {
+                "avatar": "🧠",
+                "title": "Razonamiento",
+                "sub": "Análisis · plan",
+                "color": "pink"
+              },
+              {
+                "avatar": "✦",
+                "title": "Creativo",
+                "sub": "Ideas · contenido",
+                "color": "teal"
+              },
+              {
+                "avatar": "🔧",
+                "title": "Herramientas",
+                "sub": "Web · archivos",
+                "color": "gold"
+              }
+            ],
+            "callout": {
+              "title": "Regla práctica",
+              "sub": "Tarea primero, modelo después"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cómo funciona un modelo",
+      "slides": [
+        {
+          "eyebrow": "04 · MODELO",
+          "title": "El modelo transforma entrada en salida",
+          "body": "Tú entregas una entrada: pregunta, archivo, imagen o instrucción. El modelo procesa ese contexto y genera una salida: respuesta, resumen, código, imagen o acción asistida.",
+          "tags": [
+            "entrada",
+            "procesamiento",
+            "salida"
+          ],
+          "notes": "Micro-copy: «Input → contexto → modelo → output». Es la explicación operativa clave para principiantes.",
+          "minutes": 2,
+          "diagram": {
+            "type": "custom",
+            "heading": "Flujo básico",
+            "svg": "<svg viewBox=\"0 0 340 200\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"18\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"50\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Entrada</text><text x=\"50\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">prompt</text><path d=\"M85 94 H95 M91 90 L95 94 L91 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"98\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"130\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Contexto</text><text x=\"130\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">datos</text><path d=\"M165 94 H175 M171 90 L175 94 L171 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"178\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"210\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Modelo</text><text x=\"210\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">procesa</text><path d=\"M245 94 H255 M251 90 L255 94 L251 98\" fill=\"none\" stroke=\"currentColor\" opacity=\".45\"/><rect x=\"258\" y=\"62\" width=\"64\" height=\"64\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/><text x=\"290\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Salida</text><text x=\"290\" y=\"106\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">respuesta</text></svg>"
+          }
+        },
+        {
+          "eyebrow": "05 · MODELO",
+          "title": "Entrenamiento e inferencia no son lo mismo",
+          "body": "Entrenamiento es la etapa donde el modelo ajusta sus parámetros usando grandes conjuntos de datos. Inferencia es cuando lo usamos: recibe una entrada y genera una respuesta con lo aprendido.",
+          "tags": [
+            "entrenamiento",
+            "inferencia",
+            "uso"
+          ],
+          "notes": "Micro-copy: «Entrenar ocurre antes; inferir ocurre cuando preguntas». No digas que cada conversación vuelve a entrenar el modelo.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "1",
+                "title": "Entrenamiento",
+                "sub": "Aprende patrones",
+                "color": "teal"
+              },
+              {
+                "avatar": "2",
+                "title": "Modelo listo",
+                "sub": "Parámetros ajustados",
+                "color": "blue"
+              },
+              {
+                "avatar": "3",
+                "title": "Inferencia",
+                "sub": "Responde al usuario",
+                "color": "gold"
+              }
+            ],
+            "callout": {
+              "title": "No confundir",
+              "sub": "Usar ≠ volver a entrenar"
+            }
+          }
+        },
+        {
+          "eyebrow": "06 · MODELO",
+          "title": "Los tokens son las piezas que procesa el modelo",
+          "body": "El texto se divide en pequeñas unidades llamadas tokens. Entrada, contexto y salida ocupan espacio; por eso claridad y brevedad ayudan a trabajar mejor con modelos de lenguaje.",
+          "tags": [
+            "tokens",
+            "texto",
+            "contexto"
+          ],
+          "notes": "Evita equivalencias fijas palabra↔token. Micro-copy: «El modelo no lee exactamente como nosotros».",
+          "minutes": 2,
+          "diagram": {
+            "type": "tokenfan",
+            "sources": [
+              "Prompt",
+              "Archivo",
+              "Historial"
+            ],
+            "center": {
+              "title": "Modelo",
+              "sub": "procesa tokens"
+            },
+            "outputs": [
+              {
+                "label": "Respuesta",
+                "pct": "salida",
+                "highlight": true
+              },
+              {
+                "label": "Código",
+                "pct": "salida",
+                "highlight": false
+              },
+              {
+                "label": "Resumen",
+                "pct": "salida",
+                "highlight": false
+              }
+            ]
+          }
+        },
+        {
+          "eyebrow": "07 · MODELO",
+          "title": "La ventana de contexto es la memoria de trabajo",
+          "body": "Instrucciones, archivos e historial compiten por un espacio limitado de contexto. Si hay demasiado ruido o información irrelevante, puede bajar la calidad de la respuesta.",
+          "tags": [
+            "contexto",
+            "memoria de trabajo",
+            "historial"
+          ],
+          "notes": "Distingue ventana de contexto de memoria persistente del producto. Micro-copy: «Más contexto no siempre es mejor; mejor contexto sí».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "custom",
+            "heading": "Ventana de contexto",
+            "svg": "<svg viewBox=\"0 0 340 200\" xmlns=\"http://www.w3.org/2000/svg\">\n<rect x=\"24\" y=\"48\" width=\"292\" height=\"104\" rx=\"14\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/>\n<rect x=\"38\" y=\"65\" width=\"76\" height=\"70\" rx=\"9\" fill=\"currentColor\" opacity=\".08\"/>\n<rect x=\"132\" y=\"65\" width=\"76\" height=\"70\" rx=\"9\" fill=\"currentColor\" opacity=\".08\"/>\n<rect x=\"226\" y=\"65\" width=\"76\" height=\"70\" rx=\"9\" fill=\"currentColor\" opacity=\".08\"/>\n<text x=\"76\" y=\"92\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Instrucción</text>\n<text x=\"76\" y=\"110\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Qué hacer</text>\n<text x=\"170\" y=\"92\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Contexto</text>\n<text x=\"170\" y=\"110\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Datos útiles</text>\n<text x=\"264\" y=\"92\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Historial</text>\n<text x=\"264\" y=\"110\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Conversación</text>\n<text x=\"170\" y=\"174\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".65\">Todo compite por espacio de contexto</text>\n</svg>"
+          }
+        },
+        {
+          "eyebrow": "08 · MODELO",
+          "title": "Generar no es buscar una frase guardada",
+          "body": "Un modelo generativo produce la salida paso a paso a partir de patrones aprendidos y del contexto disponible. Esa capacidad crea respuestas nuevas, pero también puede producir errores plausibles.",
+          "tags": [
+            "generación",
+            "predicción",
+            "errores"
+          ],
+          "notes": "Micro-copy: «Genera una respuesta; no garantiza una verdad». Evita explicarlo como una base de datos que solo recupera frases.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "flow",
+            "nodes": [
+              "Contexto",
+              "Predice",
+              "Genera",
+              "Revisa",
+              "Entrega"
+            ],
+            "danger": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Capacidades y límites",
+      "slides": [
+        {
+          "eyebrow": "09 · CAPACIDADES",
+          "title": "La IA moderna es multimodal",
+          "body": "Muchos sistemas trabajan con varias modalidades: texto, imágenes, audio, video y archivos. El valor aparece cuando combinamos modalidades dentro de una misma tarea.",
+          "tags": [
+            "multimodal",
+            "texto",
+            "imagen"
+          ],
+          "notes": "Micro-copy: «No solo conversa: también observa, escucha y transforma».",
+          "minutes": 2,
+          "diagram": {
+            "type": "radialhub",
+            "center": {
+              "label": "IA multimodal"
+            },
+            "nodes": [
+              {
+                "label": "Texto",
+                "sub": "leer · escribir"
+              },
+              {
+                "label": "Imagen",
+                "sub": "ver · crear"
+              },
+              {
+                "label": "Audio",
+                "sub": "oír · hablar"
+              },
+              {
+                "label": "Video",
+                "sub": "analizar · generar"
+              },
+              {
+                "label": "Archivos",
+                "sub": "PDF · datos"
+              }
+            ],
+            "quote": "Varias entradas, una tarea"
+          }
+        },
+        {
+          "eyebrow": "10 · CAPACIDADES",
+          "title": "Modelo, herramienta y agente cumplen funciones diferentes",
+          "body": "El modelo genera y razona sobre el contexto. Una herramienta le permite consultar o ejecutar algo externo. Un agente coordina pasos, decisiones y herramientas para completar un objetivo.",
+          "tags": [
+            "modelo",
+            "herramientas",
+            "agentes"
+          ],
+          "notes": "Micro-copy: «Modelo = motor; herramienta = acción; agente = coordinación». Es una analogía funcional, no literal.",
+          "minutes": 3,
+          "diagram": {
+            "type": "steppipeline",
+            "steps": [
+              {
+                "label": "Modelo",
+                "sub": "genera",
+                "tag": "1"
+              },
+              {
+                "label": "Herramienta",
+                "sub": "ejecuta",
+                "tag": "2"
+              },
+              {
+                "label": "Agente",
+                "sub": "coordina",
+                "tag": "3"
+              }
+            ]
+          }
+        },
+        {
+          "eyebrow": "11 · LÍMITES",
+          "title": "Una respuesta convincente todavía puede estar equivocada",
+          "body": "Los modelos pueden inventar datos, mezclar conceptos o responder con exceso de seguridad. Cuando una respuesta importa, verifica fuentes, cifras y supuestos.",
+          "tags": [
+            "alucinaciones",
+            "verificación",
+            "fuentes"
+          ],
+          "notes": "Micro-copy: «Fluido no significa correcto». Explica alucinación como salida falsa o no sustentada.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "anti",
+            "labels": [
+              "Suena correcto",
+              "Puede ser falso",
+              "Verifica fuentes",
+              "Confirma cifras"
+            ],
+            "activeIndex": 2,
+            "fillPct": 82
+          }
+        },
+        {
+          "eyebrow": "12 · LÍMITES",
+          "title": "Privacidad y seguridad también son fundamentos",
+          "body": "No pegues contraseñas, secretos comerciales ni datos personales innecesarios. Para tareas sensibles, revisa políticas del servicio, permisos y destino de la información.",
+          "tags": [
+            "privacidad",
+            "seguridad",
+            "datos"
+          ],
+          "notes": "Micro-copy: «Piensa antes de pegar».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "custom",
+            "heading": "Tres controles",
+            "svg": "<svg viewBox=\"0 0 340 200\" xmlns=\"http://www.w3.org/2000/svg\">\n<rect x=\"24\" y=\"42\" width=\"292\" height=\"116\" rx=\"14\" fill=\"none\" stroke=\"currentColor\" opacity=\".35\"/>\n<line x1=\"122\" y1=\"42\" x2=\"122\" y2=\"158\" stroke=\"currentColor\" opacity=\".2\"/>\n<line x1=\"220\" y1=\"42\" x2=\"220\" y2=\"158\" stroke=\"currentColor\" opacity=\".2\"/>\n<text x=\"73\" y=\"73\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">No compartir</text>\n<text x=\"73\" y=\"94\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Claves</text>\n<text x=\"73\" y=\"108\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">datos sensibles</text>\n<text x=\"171\" y=\"73\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Verificar</text>\n<text x=\"171\" y=\"94\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Cifras</text>\n<text x=\"171\" y=\"108\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">fuentes</text>\n<text x=\"269\" y=\"73\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">Revisar</text>\n<text x=\"269\" y=\"94\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">Tono</text>\n<text x=\"269\" y=\"108\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".7\">sesgos</text>\n<text x=\"170\" y=\"181\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\" opacity=\".65\">IA útil ≠ IA infalible</text>\n</svg>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Razonamiento y elección",
+      "slides": [
+        {
+          "eyebrow": "13 · RAZONAMIENTO",
+          "title": "Más complejidad puede requerir más análisis",
+          "body": "Algunas tareas se benefician de mayor comparación, planificación y revisión antes de responder. Otras solo necesitan rapidez. El nivel correcto depende de complejidad y riesgo.",
+          "tags": [
+            "razonamiento",
+            "complejidad",
+            "riesgo"
+          ],
+          "notes": "Micro-copy: «Más complejo → más análisis; no necesariamente más texto». No presentes el razonamiento como pensamiento humano literal.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "segbar",
+            "title": "Esfuerzo adecuado",
+            "segments": [
+              {
+                "label": "Bajo",
+                "sub": "Definir · resumir",
+                "width": 1,
+                "highlight": false
+              },
+              {
+                "label": "Medio",
+                "sub": "Comparar · crear",
+                "width": 1,
+                "highlight": true
+              },
+              {
+                "label": "Alto",
+                "sub": "Planificar · decidir",
+                "width": 1,
+                "highlight": false
+              }
+            ],
+            "total": "Complejidad creciente",
+            "note": "Ajusta esfuerzo al problema"
+          }
+        },
+        {
+          "eyebrow": "14 · RAZONAMIENTO",
+          "title": "Cuatro preguntas ayudan a elegir el modelo",
+          "body": "Antes de elegir, pregunta: ¿qué tan compleja es la tarea?, ¿qué tan rápido necesito respuesta?, ¿qué herramientas requiere? y ¿qué pasa si se equivoca?",
+          "tags": [
+            "selección",
+            "riesgo",
+            "velocidad"
+          ],
+          "notes": "Micro-copy: «Complejidad · velocidad · herramientas · riesgo».",
+          "minutes": 3,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "1",
+                "title": "Complejidad",
+                "sub": "¿Qué tan difícil?",
+                "color": "teal"
+              },
+              {
+                "avatar": "2",
+                "title": "Velocidad",
+                "sub": "¿Qué tan urgente?",
+                "color": "blue"
+              },
+              {
+                "avatar": "3",
+                "title": "Herramientas",
+                "sub": "¿Qué necesita usar?",
+                "color": "gold"
+              },
+              {
+                "avatar": "4",
+                "title": "Riesgo",
+                "sub": "¿Qué pasa si falla?",
+                "color": "pink"
+              }
+            ],
+            "callout": {
+              "title": "Decisión",
+              "sub": "Elige según la tarea"
+            }
+          }
+        },
+        {
+          "eyebrow": "15 · RAZONAMIENTO",
+          "title": "No uses máxima capacidad para todo",
+          "body": "Tareas repetitivas y de bajo riesgo pueden resolverse con opciones rápidas. Reserva mayor razonamiento, verificación y herramientas para problemas ambiguos, costosos o críticos.",
+          "tags": [
+            "eficiencia",
+            "costo",
+            "estrategia"
+          ],
+          "notes": "Micro-copy: «Usa lo suficiente, no lo máximo».",
+          "minutes": 2,
+          "diagram": {
+            "type": "stattiers",
+            "tierA": {
+              "label": "Simple / bajo riesgo",
+              "cards": [
+                {
+                  "title": "Resumen",
+                  "stats": [
+                    {
+                      "k": "Prioridad",
+                      "v": "Velocidad"
+                    },
+                    {
+                      "k": "Revisión",
+                      "v": "Ligera"
+                    }
+                  ],
+                  "price": "$"
+                }
+              ]
+            },
+            "tierB": {
+              "label": "Complejo / alto riesgo",
+              "cards": [
+                {
+                  "title": "Decisión",
+                  "stats": [
+                    {
+                      "k": "Prioridad",
+                      "v": "Calidad"
+                    },
+                    {
+                      "k": "Revisión",
+                      "v": "Fuerte"
+                    }
+                  ],
+                  "price": "$$$"
+                }
+              ]
+            },
+            "footer": "La tarea define el nivel de esfuerzo"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Prompting efectivo",
+      "slides": [
+        {
+          "eyebrow": "16 · PROMPTING",
+          "title": "Un prompt es una especificación de trabajo",
+          "body": "No es una frase mágica. Es una forma de decir qué quieres, con qué contexto, bajo qué límites y en qué formato deseas recibir el resultado.",
+          "tags": [
+            "prompt",
+            "instrucción",
+            "especificación"
+          ],
+          "notes": "Micro-copy: «Prompt = encargo bien definido». Evita vender prompting como truco secreto.",
+          "minutes": 2,
+          "diagram": {
+            "type": "flow",
+            "nodes": [
+              "Objetivo",
+              "Contexto",
+              "Criterios",
+              "Formato",
+              "Resultado"
+            ],
+            "danger": -1
+          }
+        },
+        {
+          "eyebrow": "17 · PROMPTING",
+          "title": "Seis bloques hacen un prompt más claro",
+          "body": "Rol, objetivo, contexto, instrucciones, límites y formato sirven como piezas modulares. Usa solo las que aporten claridad a la tarea.",
+          "tags": [
+            "rol",
+            "contexto",
+            "formato"
+          ],
+          "notes": "Micro-copy: «No es una receta rígida; es una caja de herramientas».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "radialhub",
+            "center": {
+              "label": "Prompt claro"
+            },
+            "nodes": [
+              {
+                "label": "Rol",
+                "sub": "perspectiva"
+              },
+              {
+                "label": "Objetivo",
+                "sub": "resultado"
+              },
+              {
+                "label": "Contexto",
+                "sub": "datos útiles"
+              },
+              {
+                "label": "Instrucción",
+                "sub": "qué hacer"
+              },
+              {
+                "label": "Límite",
+                "sub": "qué evitar"
+              },
+              {
+                "label": "Formato",
+                "sub": "cómo entregar"
+              }
+            ],
+            "quote": "Claridad > longitud"
+          }
+        },
+        {
+          "eyebrow": "18 · PROMPTING",
+          "title": "El micro-copy convierte vaguedad en criterios",
+          "body": "Palabras cortas como «máximo 5», «en tabla», «sin jerga», «cita fuentes» o «prioriza impacto» reducen ambigüedad. Son pequeñas restricciones con gran efecto.",
+          "tags": [
+            "micro-copy",
+            "criterios",
+            "precisión"
+          ],
+          "notes": "Micro-copy del slide: «Pocas palabras, criterio claro». Pide al público que compare cómo cambia el resultado con solo dos o tres palabras.",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "5",
+                "title": "Máximo 5",
+                "sub": "Limita cantidad",
+                "color": "blue"
+              },
+              {
+                "avatar": "▦",
+                "title": "En tabla",
+                "sub": "Define formato",
+                "color": "teal"
+              },
+              {
+                "avatar": "Aa",
+                "title": "Sin jerga",
+                "sub": "Ajusta nivel",
+                "color": "gold"
+              },
+              {
+                "avatar": "✓",
+                "title": "Cita fuentes",
+                "sub": "Pide evidencia",
+                "color": "pink"
+              }
+            ],
+            "callout": {
+              "title": "Micro-copy",
+              "sub": "Pocas palabras, criterio claro"
+            }
+          }
+        },
+        {
+          "eyebrow": "19 · PROMPTING",
+          "title": "Contexto útil gana a contexto abundante",
+          "body": "Presupuesto, audiencia, país, objetivo, restricciones y ejemplos suelen aportar valor. Información irrelevante solo ocupa espacio y distrae al modelo.",
+          "tags": [
+            "contexto",
+            "relevancia",
+            "precisión"
+          ],
+          "notes": "Micro-copy: «Contexto relevante, no relleno».",
+          "minutes": 2,
+          "diagram": {
+            "type": "funnel",
+            "label": "Filtrar contexto",
+            "before": {
+              "title": "ANTES",
+              "items": [
+                "Todo el historial",
+                "Detalles irrelevantes",
+                "Objetivo mezclado"
+              ]
+            },
+            "after": {
+              "title": "DESPUES",
+              "summary": "Solo lo necesario"
+            },
+            "counts": {
+              "before": "Mucho",
+              "beforeLabel": "ruido",
+              "after": "Poco",
+              "afterLabel": "contexto útil"
+            }
+          }
+        },
+        {
+          "eyebrow": "20 · PROMPTING",
+          "title": "Los ejemplos enseñan el patrón que quieres",
+          "body": "Cuando el formato o estilo es difícil de describir, mostrar uno o dos ejemplos puede ser más efectivo que añadir muchas reglas. El ejemplo funciona como referencia concreta.",
+          "tags": [
+            "ejemplos",
+            "few-shot",
+            "patrón"
+          ],
+          "notes": "Después de explicar la idea, puedes presentar el término «few-shot». Micro-copy: «Muéstrale cómo se ve bien».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "steppipeline",
+            "steps": [
+              {
+                "label": "Ejemplo",
+                "sub": "Así se ve",
+                "tag": "1"
+              },
+              {
+                "label": "Patrón",
+                "sub": "Detecta forma",
+                "tag": "2"
+              },
+              {
+                "label": "Nueva tarea",
+                "sub": "Replica criterio",
+                "tag": "3"
+              }
+            ]
+          }
+        },
+        {
+          "eyebrow": "21 · PROMPTING",
+          "title": "Un buen prompt también define cómo evaluar",
+          "body": "Añade criterios de calidad: qué debe incluir, qué debe evitar y cómo revisar la respuesta. Para tareas importantes, separa hechos, supuestos y recomendaciones.",
+          "tags": [
+            "criterios",
+            "verificación",
+            "calidad"
+          ],
+          "notes": "Micro-copy: «Define qué significa una buena respuesta».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "anti",
+            "labels": [
+              "Hechos",
+              "Supuestos",
+              "Fuentes",
+              "Recomendación"
+            ],
+            "activeIndex": 2,
+            "fillPct": 88
+          }
+        }
+      ]
+    },
+    {
+      "title": "Aplicación práctica",
+      "slides": [
+        {
+          "eyebrow": "22 · PRÁCTICA",
+          "title": "De «¿qué regalo compro?» a un encargo claro",
+          "body": "La mejora no consiste en hacer el prompt largo, sino en agregar decisiones útiles: destinatario, presupuesto, gustos, restricciones y formato de salida.",
+          "tags": [
+            "iteración",
+            "ejemplo",
+            "regalo"
+          ],
+          "notes": "Micro-copy: «Cada paso elimina una duda». Mantiene tu ejemplo original porque funciona muy bien con principiantes.",
+          "minutes": 2,
+          "diagram": {
+            "type": "steppipeline",
+            "steps": [
+              {
+                "label": "Objetivo",
+                "sub": "Elegir regalo",
+                "tag": "1"
+              },
+              {
+                "label": "Presupuesto",
+                "sub": "Hasta S/100",
+                "tag": "2"
+              },
+              {
+                "label": "Preferencias",
+                "sub": "Flores · chocolate",
+                "tag": "3"
+              },
+              {
+                "label": "Criterio",
+                "sub": "Útil · especial",
+                "tag": "4"
+              },
+              {
+                "label": "Formato",
+                "sub": "Tabla comparativa",
+                "tag": "5"
+              }
+            ]
+          }
+        },
+        {
+          "eyebrow": "23 · PRÁCTICA",
+          "title": "Prompt final: corto, específico y verificable",
+          "body": "«Actúa como asesor de regalos. Propón 5 opciones para el Día de la Madre, máximo S/100, considerando flores y chocolate. Devuelve una tabla con opción, precio aproximado, ventaja y posible desventaja.»",
+          "tags": [
+            "prompt final",
+            "micro-copy",
+            "tabla"
+          ],
+          "notes": "Señala los micro-copys: «5 opciones», «máximo S/100», «tabla», «ventaja», «desventaja».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "1",
+                "title": "Rol",
+                "sub": "Asesor",
+                "color": "gold"
+              },
+              {
+                "avatar": "2",
+                "title": "Límite",
+                "sub": "Máx. S/100",
+                "color": "blue"
+              },
+              {
+                "avatar": "3",
+                "title": "Criterio",
+                "sub": "Flores · chocolate",
+                "color": "teal"
+              },
+              {
+                "avatar": "4",
+                "title": "Formato",
+                "sub": "Tabla + pros/contras",
+                "color": "pink"
+              }
+            ],
+            "callout": {
+              "title": "Resultado",
+              "sub": "Menos ambigüedad, más utilidad"
+            }
+          }
+        },
+        {
+          "eyebrow": "24 · PRÁCTICA",
+          "title": "Trabaja en ciclos: pedir, revisar, corregir",
+          "body": "El primer resultado no tiene que ser el definitivo. Una forma profesional de usar IA es iterar: revisar qué falta, señalar el error y pedir una mejora concreta.",
+          "tags": [
+            "iteración",
+            "feedback",
+            "mejora"
+          ],
+          "notes": "Micro-copy: «Prompt → respuesta → feedback → versión mejor».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "flow",
+            "nodes": [
+              "Pide",
+              "Revisa",
+              "Detecta",
+              "Corrige",
+              "Mejora"
+            ],
+            "danger": -1
+          }
+        },
+        {
+          "eyebrow": "25 · PRÁCTICA",
+          "title": "La IA funciona mejor como copiloto",
+          "body": "Úsala para acelerar síntesis, ideas, análisis y borradores; conserva el criterio humano para validar, decidir y asumir responsabilidad por el resultado final.",
+          "tags": [
+            "copiloto",
+            "criterio",
+            "responsabilidad"
+          ],
+          "notes": "Micro-copy: «IA acelera; tú decides».",
+          "minutes": 2.5,
+          "diagram": {
+            "type": "cardgrid",
+            "cards": [
+              {
+                "avatar": "AI",
+                "title": "IA",
+                "sub": "Propone · acelera",
+                "color": "teal"
+              },
+              {
+                "avatar": "TÚ",
+                "title": "Persona",
+                "sub": "Valida · decide",
+                "color": "gold"
+              }
+            ],
+            "callout": {
+              "title": "Trabajo conjunto",
+              "sub": "Velocidad + criterio"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cierre y siguiente nivel",
+      "slides": [
+        {
+          "eyebrow": "26 · RESUMEN",
+          "title": "El mapa completo cabe en seis ideas",
+          "body": "Distingue empresa, producto y modelo. Entiende entrada, contexto y salida. Elige capacidad según la tarea. Da instrucciones claras. Verifica resultados. Protege datos sensibles.",
+          "tags": [
+            "resumen",
+            "fundamentos",
+            "mapa"
+          ],
+          "notes": "Micro-copy: «Entender → elegir → pedir → verificar».",
+          "minutes": 3,
+          "diagram": {
+            "type": "radialhub",
+            "center": {
+              "label": "Fundamentos IA"
+            },
+            "nodes": [
+              {
+                "label": "Distinguir",
+                "sub": "capas"
+              },
+              {
+                "label": "Entender",
+                "sub": "flujo"
+              },
+              {
+                "label": "Elegir",
+                "sub": "modelo"
+              },
+              {
+                "label": "Pedir",
+                "sub": "prompt"
+              },
+              {
+                "label": "Verificar",
+                "sub": "calidad"
+              },
+              {
+                "label": "Proteger",
+                "sub": "datos"
+              }
+            ],
+            "quote": "Entender antes de automatizar"
+          }
+        },
+        {
+          "eyebrow": "27 · SIGUIENTE NIVEL",
+          "title": "Después de fundamentos: cinco rutas",
+          "body": "El siguiente paso puede ser profundizar en prompting, investigación con IA, automatización y agentes, creación multimodal o programación asistida. La ruta depende de lo que quieras producir.",
+          "tags": [
+            "ruta",
+            "aprendizaje",
+            "siguiente nivel"
+          ],
+          "notes": "Micro-copy: «Aprende lo que vas a usar».",
+          "minutes": 2,
+          "diagram": {
+            "type": "steppipeline",
+            "steps": [
+              {
+                "label": "Prompting",
+                "sub": "pedir mejor",
+                "tag": "01"
+              },
+              {
+                "label": "Research",
+                "sub": "verificar",
+                "tag": "02"
+              },
+              {
+                "label": "Agentes",
+                "sub": "automatizar",
+                "tag": "03"
+              },
+              {
+                "label": "Multimodal",
+                "sub": "crear",
+                "tag": "04"
+              },
+              {
+                "label": "Código",
+                "sub": "construir",
+                "tag": "05"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

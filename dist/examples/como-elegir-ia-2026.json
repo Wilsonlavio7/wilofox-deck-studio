@@ -1,0 +1,192 @@
+{
+  "title": "Cómo elegir una IA en 2026: plataformas, modelos y herramientas",
+  "meta": {
+    "subcategoria": "Inteligencia artificial",
+    "serie": "Elegir y administrar IA en 2026",
+    "episodio": "1"
+  },
+  "deck": [
+    {
+      "title": "El mapa para comparar IA",
+      "slides": [
+        {
+          "eyebrow": "01 · MAPA IA",
+          "title": "No preguntes cuál IA es la mejor",
+          "body": "La pregunta útil es: **¿cuál me conviene para esta tarea?** Una plataforma puede destacar al estudiar, otra al crear contenido y otra al programar. Elegí por objetivo, presupuesto y control, no solo por fama.",
+          "tags": ["decisión", "criterio"],
+          "notes": "Abre preguntando qué herramienta usa hoy la audiencia y qué espera obtener de ella.",
+          "minutes": 2.5,
+          "diagram": {"type":"radialhub","center":{"label":"TU TAREA"},"nodes":[{"label":"Estudiar","sub":"explicar"},{"label":"Crear","sub":"contenido"},{"label":"Trabajar","sub":"documentos"},{"label":"Programar","sub":"automatizar"}],"quote":"La mejor IA depende del trabajo, no del logo."}
+        },
+        {
+          "eyebrow": "02 · MAPA IA",
+          "title": "Empresa, plataforma, función y modelo",
+          "body": "No confundas a quien crea la IA con la aplicación que usas. **OpenAI** es la empresa, **ChatGPT** la plataforma, Codex una superficie de trabajo y GPT el modelo. La misma lógica se aplica a Claude y Gemini.",
+          "tags": ["ecosistema", "modelos"],
+          "notes": "Repite el mapa usando Anthropic → Claude y Google → Gemini antes de pasar al resto.",
+          "minutes": 3,
+          "diagram": {"type":"layers","labels":["Empresa","Plataforma","Función","Modelo"],"activeIndex":3,"progressive":true}
+        },
+        {
+          "eyebrow": "03 · MAPA IA",
+          "title": "Seis plataformas que debes conocer",
+          "body": "Compararemos **ChatGPT, Claude, Gemini, Kimi, Qwen y DeepSeek**. No son copias idénticas: cambian sus modelos, herramientas, precio, idioma, privacidad y disponibilidad. La comparación debe partir de una tarea real.",
+          "tags": ["comparación", "plataformas"],
+          "notes": "Solo ubica los seis nombres; no intentes resolver todavía cuál gana.",
+          "minutes": 2.5,
+          "diagram": {"type":"cardgrid","cards":[{"avatar":"C","title":"ChatGPT","sub":"OpenAI","color":"teal"},{"avatar":"C","title":"Claude","sub":"Anthropic","color":"gold"},{"avatar":"G","title":"Gemini","sub":"Google","color":"blue"},{"avatar":"K","title":"Kimi","sub":"Moonshot","color":"pink"},{"avatar":"Q","title":"Qwen","sub":"Alibaba","color":"gray"},{"avatar":"D","title":"DeepSeek","sub":"DeepSeek","color":"teal"}],"callout":{"title":"Mismo objetivo","sub":"resolver trabajo real"}}
+        },
+        {
+          "eyebrow": "04 · MAPA IA",
+          "title": "Chat, Work, agente, CLI y API no son lo mismo",
+          "body": "El **chat** responde; un espacio de **trabajo** sostiene contexto; un **agente** usa herramientas bajo supervisión; CLI y API integran IA en flujos propios. Una empresa puede ofrecer todas estas capas, con accesos y costos distintos.",
+          "tags": ["chat", "api", "agentes"],
+          "notes": "Ejemplo: guion en chat, serie en Work, investigación con agente y automatización con API.",
+          "minutes": 3,
+          "diagram": {"type":"steppipeline","steps":[{"label":"Chat","sub":"preguntar","tag":"manual"},{"label":"Work","sub":"contexto","tag":"proyecto"},{"label":"Agente","sub":"herramientas","tag":"tarea"},{"label":"API / CLI","sub":"automatizar","tag":"código"}],"progressive":true}
+        }
+      ]
+    },
+    {
+      "title": "Modelos: potencia, versiones y esfuerzo",
+      "slides": [
+        {
+          "eyebrow": "05 · MODELOS",
+          "title": "Rápido, equilibrado o avanzado",
+          "body": "No necesitas el modelo más potente para todo. Un modelo rápido ayuda con volumen; uno equilibrado cubre el trabajo diario; uno avanzado sirve para análisis complejo, código difícil o decisiones que requieren más verificación.",
+          "tags": ["velocidad", "calidad", "costo"],
+          "notes": "Aclara que rápido no significa malo: significa que fue diseñado para otra relación entre latencia, costo y calidad.",
+          "minutes": 3,
+          "diagram": {"type":"stattiers","tierA":{"label":"USO DIARIO","cards":[{"title":"Rápido","stats":[{"k":"Ideal","v":"volumen"}],"price":"menor costo"},{"title":"Equilibrado","stats":[{"k":"Ideal","v":"trabajo"}],"price":"uso diario"}]},"tierB":{"label":"TAREA CRÍTICA","cards":[{"title":"Avanzado","stats":[{"k":"Ideal","v":"análisis"}],"price":"más capacidad"}]},"footer":"Potencia solo cuando aporta valor"}
+        },
+        {
+          "eyebrow": "06 · MODELOS",
+          "title": "¿Por qué conviven varias versiones?",
+          "body": "Una plataforma puede mostrar generaciones distintas porque conserva opciones por compatibilidad, estabilidad, precio y transición. La versión nueva no siempre sustituye de inmediato a la anterior; compara capacidad, límites y costo antes de migrar.",
+          "tags": ["versiones", "compatibilidad"],
+          "notes": "No presentes nombres concretos como permanentes: en vivo se verifican en la cuenta o documentación del proveedor.",
+          "minutes": 3,
+          "diagram": {"type":"flow","nodes":["Modelo previo","Transición","Modelo nuevo","Elección"],"danger":-1,"progressive":true}
+        },
+        {
+          "eyebrow": "07 · MODELOS",
+          "title": "Esfuerzo de razonamiento: pensar más tiene costo",
+          "body": "Algunos modelos permiten variar el esfuerzo de razonamiento. Más esfuerzo puede mejorar tareas difíciles, pero aumenta la espera y la capacidad consumida. Un título para TikTok y una arquitectura técnica no necesitan el mismo nivel.",
+          "tags": ["razonamiento", "esfuerzo"],
+          "notes": "Invita al público a clasificar tareas sencillas, diarias y críticas antes de elegir un modelo.",
+          "minutes": 3,
+          "diagram": {"type":"segbar","title":"Nivel de esfuerzo","segments":[{"label":"Bajo","sub":"rápido","width":1,"highlight":false},{"label":"Medio","sub":"diario","width":2,"highlight":true},{"label":"Alto","sub":"crítico","width":3,"highlight":false}],"total":"más capacidad","note":"No todo pedido necesita pensar al máximo."}
+        },
+        {
+          "eyebrow": "08 · MODELOS",
+          "title": "Un contexto largo no reemplaza tu criterio",
+          "body": "Subir un PDF grande o un proyecto entero no garantiza una respuesta correcta. La IA ayuda a resumir y relacionar información, pero debes pedir evidencia, revisar citas y contrastar los puntos que cambian una decisión.",
+          "tags": ["contexto", "verificación"],
+          "notes": "Explica el ciclo: objetivo, extracción, contraste y decisión humana.",
+          "minutes": 2.5,
+          "diagram": {"type":"funnel","label":"DOCUMENTO","before":{"title":"ANTES","items":["PDF largo","Datos mixtos","Dudas clave"]},"after":{"title":"DESPUÉS","summary":"respuesta verificable"},"counts":{"before":"100","beforeLabel":"páginas","after":"1","afterLabel":"decisión"}}
+        }
+      ]
+    },
+    {
+      "title": "Herramientas por ecosistema",
+      "slides": [
+        {
+          "eyebrow": "09 · HERRAMIENTAS",
+          "title": "ChatGPT: conversación, trabajo y desarrollo",
+          "body": "ChatGPT reúne conversación, análisis de archivos, investigación y herramientas de creación. Para desarrollo, el ecosistema incorpora Codex y API. La disponibilidad concreta depende del plan, país, cuenta y capacidad vigente.",
+          "tags": ["chatgpt", "openai"],
+          "notes": "Sugiere revisar la pantalla real de cada cuenta para no prometer una función que todavía no está habilitada.",
+          "minutes": 3,
+          "diagram": {"type":"radialhub","center":{"label":"CHATGPT"},"nodes":[{"label":"Chat","sub":"ideas"},{"label":"Archivos","sub":"análisis"},{"label":"Work","sub":"proyectos"},{"label":"Codex","sub":"código"},{"label":"API","sub":"producto"}],"quote":"Una plataforma puede reunir varias formas de trabajar."}
+        },
+        {
+          "eyebrow": "10 · HERRAMIENTAS",
+          "title": "Claude: proyectos, Artifacts y Code",
+          "body": "Claude combina conversación, proyectos con contexto y entregables. **Artifacts** convierte una idea en una pieza utilizable; Claude Code acerca la IA al desarrollo en terminal. El acceso de cada función puede variar según plan o región.",
+          "tags": ["claude", "artifacts", "code"],
+          "notes": "Diferencia un Artifact de un texto común: es un resultado que puede revisarse y reutilizarse.",
+          "minutes": 3,
+          "diagram": {"type":"grid3","labels":["Chat","Projects","Artifacts","Code","API","Archivos"]}
+        },
+        {
+          "eyebrow": "11 · HERRAMIENTAS",
+          "title": "Gemini: el valor está en el ecosistema Google",
+          "body": "Gemini puede ser especialmente práctico si ya trabajas con Gmail, Drive, Docs y Sheets. Para entender costos y límites, separa la aplicación de usuario, Workspace, AI Studio y la API: son superficies distintas.",
+          "tags": ["gemini", "google", "workspace"],
+          "notes": "Conecta esta idea con la rutina del público: correo, documentos, archivos y hojas de cálculo.",
+          "minutes": 3,
+          "diagram": {"type":"tokenfan","sources":["Gmail","Drive","Docs","Sheets"],"center":{"title":"Gemini","sub":"ecosistema Google"},"outputs":[{"label":"Chat","pct":"App","highlight":false},{"label":"Trabajo","pct":"Workspace","highlight":true},{"label":"Crear","pct":"Studio","highlight":false},{"label":"Integrar","pct":"API","highlight":false}]}
+        },
+        {
+          "eyebrow": "12 · HERRAMIENTAS",
+          "title": "Kimi, Qwen y DeepSeek son alternativas reales",
+          "body": "Las plataformas chinas no son un bloque único. Kimi, Qwen y DeepSeek tienen modelos, políticas, acceso por chat y opciones API diferentes. Compáralas con la misma tarea y revisa idioma, privacidad, precio y disponibilidad.",
+          "tags": ["kimi", "qwen", "deepseek"],
+          "notes": "Evita decir que alguna reemplaza automáticamente a una plataforma occidental; primero define el caso de uso.",
+          "minutes": 3,
+          "diagram": {"type":"cardgrid","cards":[{"avatar":"K","title":"Kimi","sub":"trabajo largo","color":"pink"},{"avatar":"Q","title":"Qwen","sub":"ecosistema","color":"blue"},{"avatar":"D","title":"DeepSeek","sub":"chat y API","color":"teal"}],"callout":{"title":"Compáralas bien","sub":"misma tarea, criterios iguales"}}
+        },
+        {
+          "eyebrow": "13 · HERRAMIENTAS",
+          "title": "Multimodal no significa que todo esté incluido",
+          "body": "Una IA puede comprender una imagen, generar una imagen, editarla o crear video: son capacidades distintas. También cambian por modelo, plan, país y cuota. Nunca prometas que una función está incluida sin comprobar la cuenta.",
+          "tags": ["imagen", "video", "planes"],
+          "notes": "Haz una demostración breve de analizar una imagen y recalca que analizar no es generar.",
+          "minutes": 2.5,
+          "diagram": {"type":"steppipeline","steps":[{"label":"Comprender","sub":"leer imagen","tag":"visión"},{"label":"Generar","sub":"crear imagen","tag":"imagen"},{"label":"Editar","sub":"cambiar","tag":"edición"},{"label":"Animar","sub":"crear video","tag":"video"}],"progressive":true}
+        }
+      ]
+    },
+    {
+      "title": "Planes, límites y elección práctica",
+      "slides": [
+        {
+          "eyebrow": "14 · PLANES",
+          "title": "Gratis no significa inútil; pago no significa ilimitado",
+          "body": "El plan gratuito sirve para aprender y probar. Al pagar normalmente obtienes más capacidad, modelos o herramientas, pero siguen existiendo políticas de uso, ventanas de capacidad y límites distintos para cada función.",
+          "tags": ["gratis", "suscripción", "límites"],
+          "notes": "Corrige el mito: una suscripción no equivale a capacidad infinita ni a créditos API automáticos.",
+          "minutes": 3,
+          "diagram": {"type":"anti","labels":["Gratis","Más acceso","Plan pago","Sin límites"],"activeIndex":3,"fillPct":35}
+        },
+        {
+          "eyebrow": "15 · PLANES",
+          "title": "¿A quién le conviene el plan gratuito?",
+          "body": "Conviene a curiosos, estudiantes y personas con uso ocasional. Puedes aprender, resumir, practicar prompts y comparar respuestas; no es ideal para producción constante, agentes extensos o un flujo profesional crítico todos los días.",
+          "tags": ["principiantes", "estudiantes"],
+          "notes": "Propón una prueba de siete días con tareas reales y registra qué limitación aparece primero.",
+          "minutes": 2.5,
+          "diagram": {"type":"statcards","cards":[{"value":"✓","label":"Aprender","status":"sí conviene","color":"green","current":false},{"value":"✓","label":"Uso ocasional","status":"sí conviene","color":"green","current":false},{"value":"!","label":"Producción diaria","status":"puede limitar","color":"amber","current":true}],"note":"Primero valida tu caso de uso."}
+        },
+        {
+          "eyebrow": "16 · PLANES",
+          "title": "Suscripción y API son billeteras distintas",
+          "body": "Una suscripción da acceso a una experiencia de producto con cuotas variables. La **API** normalmente factura por consumo y permite presupuestos técnicos. Tener un plan de chat no garantiza créditos API ni el mismo límite de uso.",
+          "tags": ["api", "suscripción", "consumo"],
+          "notes": "Usa la analogía de membresía frente a medidor: ambas opciones pueden convivir.",
+          "minutes": 3,
+          "diagram": {"type":"segbar","title":"Dos formas de pagar","segments":[{"label":"Suscripción","sub":"cuotas","width":2,"highlight":true},{"label":"API","sub":"consumo","width":2,"highlight":false}],"total":"acceso y costo","note":"No asumas que una incluye la otra."}
+        },
+        {
+          "eyebrow": "17 · COMPARACIÓN",
+          "title": "La demostración correcta usa el mismo encargo",
+          "body": "Para comparar seis IAs, utiliza exactamente el mismo objetivo, audiencia, restricciones y formato. Evalúa claridad, fuentes, creatividad, errores, tiempo y cuánto trabajo humano queda antes de publicar el resultado.",
+          "tags": ["práctica", "prompts", "evaluación"],
+          "notes": "Caso sugerido: guion de 60 segundos sobre cómo evitar estafas con IA. Copia el prompt sin cambios.",
+          "minutes": 3,
+          "diagram": {"type":"flow","nodes":["Mismo prompt","6 respuestas","Evaluar","Elegir","Verificar"],"danger":-1,"progressive":true}
+        },
+        {
+          "eyebrow": "18 · DECISIÓN",
+          "title": "Tu mejor combinación depende de tu perfil",
+          "body": "Un estudiante puede empezar gratis; un creador necesita calidad y ritmo; un profesional prioriza datos y contexto; un desarrollador necesita CLI, API, presupuesto y trazabilidad. Empieza pequeño, mide valor y escala solo cuando convenga.",
+          "tags": ["perfiles", "estrategia", "elección"],
+          "notes": "Cierra con una recomendación responsable: no pagues por moda; paga por tiempo ahorrado y control.",
+          "minutes": 3,
+          "diagram": {"type":"radialhub","center":{"label":"TU PERFIL"},"nodes":[{"label":"Estudiante","sub":"aprender"},{"label":"Creador","sub":"publicar"},{"label":"Profesional","sub":"decidir"},{"label":"Developer","sub":"integrar"}],"quote":"Prueba, mide y escala según el valor que recibes."}
+        }
+      ]
+    }
+  ]
+}

@@ -10,15 +10,24 @@ https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/
 
 No account or credentials are required.
 
+On the first visit, choose one option:
+
+- Enter a display name and activity to personalize the dashboard in this browser.
+- Select **Explore as guest** to continue without a profile.
+
+This is a local preference, not a login. It does not synchronize presentations between devices.
+
 ## Basic workflow
 
-1. Open the presentation library.
-2. Select **Load example** or create a new presentation.
-3. Add sections and slides.
-4. Edit the title, body, diagram, notes, and presentation settings.
-5. Select **Present** to open the audience view.
-6. Select **2 screens** to open the presenter control panel.
-7. Use the timer, speaker notes, navigation, and blackout controls.
+1. Create the project card: title, format, area, category, and production status.
+2. Research the topic and define sections and slide titles first.
+3. Reorder the outline before writing complete content.
+4. Add the body, tags, speaker notes, minutes, and a visual resource to each slide.
+5. Review the total-time indicator in the editor.
+6. Mark the script ready and rehearse in **Present** mode.
+7. For a live session, select **2 screens** and keep the presenter panel private.
+
+The in-app **Quick Guide** includes searchable accordions for JSON templates, the editor, presentation shortcuts, OBS, WebMCP, backups, and troubleshooting.
 
 ## WebMCP
 
