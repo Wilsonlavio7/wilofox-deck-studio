@@ -80,6 +80,11 @@ MIT License
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
 
 
+<!-- WILOFOX-DOCX-MANUAL -->
+
+## Downloadable User Manual
+
+[Download the complete Wilofox Deck Studio User Manual (DOCX)](docs/manual/Manual-de-Usuario-Wilofox-Deck-Studio.docx)
 <!-- WILOFOX-VISUAL-TOUR -->
 
 ## Visual Tour
