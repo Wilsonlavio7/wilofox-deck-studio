@@ -1,11 +1,11 @@
-﻿# Wilofox Deck Studio
+# Wilofox Deck Studio
 
 <!-- WILOFOX-HERO -->
 ![Wilofox Deck Studio](docs/images/cover-github.png)
 > Create and present visual lessons with an AI agent by your side, while the educator remains in control.
 
-[Live Demo](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/) Â·
-[Devpost Submission](https://devpost.com/software/wilofox-deck-studio) Â·
+[Live Demo](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/) |
+[Devpost Submission](https://devpost.com/software/wilofox-deck-studio) |
 [Video Demo](https://youtu.be/7OCQUkuliys)
 
 ## Why I built it
@@ -38,7 +38,7 @@ Agent actions use the same visible interface and application state as the educat
 ## Try the WebMCP workflow
 
 1. Open the [live application](https://wilofox-agentic-deck-studio.wilsonlavio9.chatgpt.site/).
-2. Use ChatGPTâ€™s in-app browser or Chrome with WebMCP enabled.
+2. Use ChatGPT's in-app browser or Chrome with WebMCP enabled.
 3. Ask the agent to create or read a presentation.
 4. Manually edit one slide.
 5. Ask the agent to read the updated state and improve only that slide.
