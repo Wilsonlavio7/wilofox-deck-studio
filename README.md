@@ -63,3 +63,14 @@ Created by Wilson Lavio for the OpenAI WebMCP Challenge.
 ## License
 
 MIT License
+
+<!-- WILOFOX-DOCUMENTATION -->
+
+## Documentation
+
+- [Quick Start](docs/QUICK_START.md)
+- [User Guide](docs/USER_GUIDE.md)
+- [WebMCP Guide](docs/WEBMCP_GUIDE.md)
+- [Judge Guide](docs/JUDGE_GUIDE.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
